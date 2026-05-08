@@ -59,16 +59,15 @@
             margin: auto;
         }
 
-        /* Base card style */
+        /* Card base */
         .plane-card {
             background: white;
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 0 10px #ccc;
             text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
             transform-style: preserve-3d;
-            perspective: 800px;
             animation: popIn 0.6s ease-out;
         }
 
@@ -77,7 +76,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Hover zoom */
+        /* Image zoom */
         .plane-card img {
             width: 100%;
             border-radius: 10px;
@@ -88,7 +87,6 @@
             transform: scale(1.05);
         }
 
-        /* Title + info */
         .plane-title {
             font-size: 24px;
             font-weight: 700;
@@ -196,7 +194,7 @@
 
     </div>
 
-    <!-- Mouse hover tilt script -->
+    <!-- REAL mouse hover tilt animation -->
     <script>
         document.querySelectorAll('.plane-card').forEach(card => {
             card.addEventListener('mousemove', e => {
