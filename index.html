@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First Website</title>
+    <title>GlazedKimpabAir — Official Airline Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Top navigation bar */
+        .navbar {
+            background-color: #003366;
+            padding: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Big hero banner */
+        .hero {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Airplane_sky.jpg/1920px-Airplane_sky.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px black;
+        }
+
+        /* Content section */
+        .section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .fleet-box {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello, world!</h1>
-    <p>This is my first website made from scratch.</p>
+
+    <div class="navbar">
+        GlazedKimpabAir
+        <a href="#">Home</a>
+        <a href="#">Fleet</a>
+        <a href="#">Destinations</a>
+        <a href="#">About Us</a>
+    </div>
+
+    <div class="hero">
+        Fly the Future
+    </div>
+
+    <div class="section">
+        <h2>Welcome to GlazedKimpabAir</h2>
+        <p>Experience comfort, innovation, and Korean hospitality in the skies.</p>
+
+        <div class="fleet-box">
+            <h3>Our Fleet</h3>
+            <p>A320neo • A350‑1000 • 737 MAX 8 • 767‑300ER</p>
+        </div>
+    </div>
+
 </body>
 </html>
