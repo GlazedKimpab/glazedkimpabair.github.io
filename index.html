@@ -3,55 +3,80 @@
 <head>
     <title>GlazedKimpabAir — Official Airline Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <style>
+    /* Fade-in animation for whole page */
+    body {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        background-color: #f4f4f4;
+        animation: fadeIn 1.2s ease-in-out;
+    }
 
-    <style>
-        body {
-    animation: fadeIn 1.2s ease-in-out;
-}
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-        body {
-            margin: 0;
-            font-family: Montserrat, sans-serif;
-            background-color: #f4f4f4;
+    /* Navbar animation */
+    .navbar {
+        background-color: #003366;
+        padding: 15px;
+        color: white;
+        font-size: 20px;
+        animation: dropDown 0.8s ease-out;
+    }
+
+    @keyframes dropDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
         }
-
-        .navbar {
-            background-color: #003366;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        .navbar a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .navbar a {
+        color: white;
+        margin-right: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        .hero {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Airplane_sky.jpg/1920px-Airplane_sky.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            text-shadow: 0px 0px 10px black;
-        }
+    /* Hero animation */
+    .hero {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Airplane_sky.jpg/1920px-Airplane_sky.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        text-shadow: 0px 0px 10px black;
+        animation: slideUp 1.3s ease-out;
+    }
 
-        .section {
-            padding: 40px;
-            text-align: center;
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
         }
-    </style>
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .section {
+        padding: 40px;
+        text-align: center;
+        animation: fadeIn 1.8s ease-in-out;
+    }
+</style>
 </head>
 
 <body>
