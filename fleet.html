@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Fade-in for whole page */
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
@@ -17,6 +18,7 @@
             to { opacity: 1; }
         }
 
+        /* Navbar animation */
         .navbar {
             background-color: #003366;
             padding: 15px;
@@ -37,6 +39,7 @@
             font-weight: 600;
         }
 
+        /* Header animation */
         .header {
             text-align: center;
             padding: 40px;
@@ -50,6 +53,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Fleet grid */
         .fleet-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -57,6 +61,7 @@
             padding: 20px;
             width: 90%;
             margin: auto;
+            perspective: 1000px; /* REQUIRED for tilt */
         }
 
         /* Card base */
@@ -66,8 +71,8 @@
             padding: 20px;
             box-shadow: 0 0 10px #ccc;
             text-align: center;
-            transition: transform 0.15s ease, box-shadow 0.2s ease;
-            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, box-shadow 0.2s ease;
+            transform-style: preserve-3d; /* REQUIRED */
             animation: popIn 0.6s ease-out;
         }
 
@@ -87,6 +92,7 @@
             transform: scale(1.05);
         }
 
+        /* Text */
         .plane-title {
             font-size: 24px;
             font-weight: 700;
@@ -194,7 +200,7 @@
 
     </div>
 
-    <!-- REAL mouse hover tilt animation -->
+    <!-- REAL tilt animation -->
     <script>
         document.querySelectorAll('.plane-card').forEach(card => {
             card.addEventListener('mousemove', e => {
@@ -205,8 +211,8 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
 
-                const rotateX = ((y - centerY) / 20) * -1;
-                const rotateY = (x - centerX) / 20;
+                const rotateX = ((y - centerY) / 15) * -1;
+                const rotateY = (x - centerX) / 15;
 
                 card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
             });
