@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>GlazedKimpabAir — Official Airline Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -9,7 +11,6 @@
             background-color: #f4f4f4;
         }
 
-        /* Top navigation bar */
         .navbar {
             background-color: #003366;
             padding: 15px;
@@ -18,13 +19,12 @@
         }
 
         .navbar a {
-            color: black;
+            color: white;
             margin-right: 20px;
             text-decoration: none;
             font-weight: bold;
         }
 
-        /* Big hero banner */
         .hero {
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Airplane_sky.jpg/1920px-Airplane_sky.jpg');
             background-size: cover;
@@ -39,114 +39,9 @@
             text-shadow: 0px 0px 10px black;
         }
 
-        /* Content section */
         .section {
             padding: 40px;
             text-align: center;
-        }
-
-        .fleet-box {
-            background: white;
-            padding: 20px;
-            margin: 20px auto;
-            width: 60%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="navbar">
-        GlazedKimpabAir
-        <a href="#">Home</a>
-        <a href="#">Fleet</a>
-        <a href="#">Destinations</a>
-        <a href="#">About Us</a>
-    </div>
-
-    <div class="hero">
-        Fly the Future
-    </div>
-
-    <div class="section">
-        <h2>Welcome to GlazedKimpabAir</h2>
-        <p>Experience comfort, innovation, and Korean hospitality in the skies.</p>
-        </div>
-    </div>
-
-</body>
-</html>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!DOCTYPE html>
-<html>
-<head>
-    <title>GlazedKimpabAir Fleet</title>
-
-    <!-- Montserrat Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .navbar {
-            background-color: #003366;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
-        }
-
-        .navbar a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .header {
-            text-align: center;
-            padding: 40px;
-            font-size: 40px;
-            font-weight: 700;
-        }
-
-        .fleet-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            width: 90%;
-            margin: auto;
-        }
-
-        .plane-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 10px #ccc;
-            text-align: center;
-        }
-
-        .plane-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .plane-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 15px;
-        }
-
-        .plane-info {
-            font-size: 15px;
-            margin-top: 10px;
-            color: #333;
         }
     </style>
 </head>
@@ -161,87 +56,13 @@
         <a href="#">About Us</a>
     </div>
 
-    <div class="header">Our Fleet</div>
+    <div class="hero">
+        Fly the Future
+    </div>
 
-    <div class="fleet-container">
-
-        <!-- A350-1000 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Airbus_A350-1000_Qatar_Airways.jpg">
-            <div class="plane-title">Airbus A350‑1000</div>
-            <div class="plane-info">
-                Flagship long‑haul<br>
-                Seats: 350–410<br>
-                Range: 16,100 km
-            </div>
-        </div>
-
-        <!-- A330-900neo -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
-            <div class="plane-title">Airbus A330‑900neo</div>
-            <div class="plane-info">
-                Efficient long‑haul<br>
-                Seats: 260–300<br>
-                Range: 13,300 km
-            </div>
-        </div>
-
-        <!-- A320neo -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Airbus_A320neo_first_flight.jpg">
-            <div class="plane-title">Airbus A320neo</div>
-            <div class="plane-info">
-                Regional & domestic<br>
-                Seats: 150–180<br>
-                Range: 6,300 km
-            </div>
-        </div>
-
-        <!-- 737 MAX 8 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Boeing_737_MAX_8_first_flight.jpg">
-            <div class="plane-title">Boeing 737 MAX 8</div>
-            <div class="plane-info">
-                Medium‑haul<br>
-                Seats: 162–178<br>
-                Range: 6,570 km
-            </div>
-        </div>
-
-        <!-- 747-200 -->
-        <div class="plane-card">
-            <img src="https://ibb.co/qMPtD3Ds">
-            <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
-            <div class="plane-info">
-                Legacy jumbo jet<br>
-                Seats: 366–452<br>
-                Range: 12,700 km
-            </div>
-        </div>
-
-        <!-- 767-300ER -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Delta_Air_Lines_Boeing_767-300ER.jpg">
-            <div class="plane-title">Boeing 767‑300ER</div>
-            <div class="plane-info">
-                Mid‑haul international<br>
-                Seats: 218–269<br>
-                Range: 11,000 km
-            </div>
-        </div>
-
-        <!-- ATR -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg">
-            <div class="plane-title">ATR 72‑600</div>
-            <div class="plane-info">
-                Short‑haul turboprop<br>
-                Seats: 70<br>
-                Range: 1,500 km
-            </div>
-        </div>
-
+    <div class="section">
+        <h2>Welcome to GlazedKimpabAir</h2>
+        <p>Experience comfort, innovation, and Korean hospitality in the skies.</p>
     </div>
 
 </body>
