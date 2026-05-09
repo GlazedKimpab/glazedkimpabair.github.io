@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Fade-in for whole page */
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
@@ -18,7 +17,6 @@
             to { opacity: 1; }
         }
 
-        /* Navbar animation */
         .navbar {
             background-color: #003366;
             padding: 15px;
@@ -39,7 +37,6 @@
             font-weight: 600;
         }
 
-        /* Header animation */
         .header {
             text-align: center;
             padding: 40px;
@@ -53,7 +50,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Fleet grid */
         .fleet-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -61,10 +57,15 @@
             padding: 20px;
             width: 90%;
             margin: auto;
-            perspective: 1000px; /* REQUIRED for tilt */
+            perspective: 1000px;
         }
 
-        /* Card base */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .plane-card {
             background: white;
             border-radius: 12px;
@@ -72,7 +73,7 @@
             box-shadow: 0 0 10px #ccc;
             text-align: center;
             transition: transform 0.15s ease-out, box-shadow 0.2s ease;
-            transform-style: preserve-3d; /* REQUIRED */
+            transform-style: preserve-3d;
             animation: popIn 0.6s ease-out;
         }
 
@@ -81,7 +82,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Image zoom */
         .plane-card img {
             width: 100%;
             border-radius: 10px;
@@ -92,7 +92,6 @@
             transform: scale(1.05);
         }
 
-        /* Expand + reveal description */
         .plane-extra {
             opacity: 0;
             max-height: 0;
@@ -113,7 +112,6 @@
             max-height: 200px;
         }
 
-        /* Text */
         .plane-title {
             font-size: 24px;
             font-weight: 700;
@@ -143,106 +141,119 @@
     <div class="fleet-container">
 
         <!-- A350-1000 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Airbus_A350-1000_Qatar_Airways.jpg">
-            <div class="plane-title">Airbus A350‑1000</div>
-            <div class="plane-info">
-                Flagship long‑haul<br>
-                Seats: 350–410<br>
-                Range: 16,100 km
+        <a href="a350.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Airbus_A350-1000_Qatar_Airways.jpg">
+                <div class="plane-title">Airbus A350‑1000</div>
+                <div class="plane-info">
+                    Flagship long‑haul<br>
+                    Seats: 350–410<br>
+                    Range: 16,100 km
+                </div>
+                <div class="plane-extra">
+                    Our premium long‑haul aircraft with next‑gen comfort and ultra‑quiet cabins.
+                </div>
             </div>
-            <div class="plane-extra">
-                Our premium long‑haul aircraft with next‑gen comfort and ultra‑quiet cabins.
-            </div>
-        </div>
+        </a>
 
         <!-- A330-900neo -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
-            <div class="plane-title">Airbus A330‑900neo</div>
-            <div class="plane-info">
-                Efficient long‑haul<br>
-                Seats: 260–300<br>
-                Range: 13,300 km
+        <a href="a330neo.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
+                <div class="plane-title">Airbus A330‑900neo</div>
+                <div class="plane-info">
+                    Efficient long‑haul<br>
+                    Seats: 260–300<br>
+                    Range: 13,300 km
+                </div>
+                <div class="plane-extra">
+                    Fuel‑efficient widebody ideal for medium and long‑haul routes.
+                </div>
             </div>
-            <div class="plane-extra">
-                Fuel‑efficient widebody ideal for medium and long‑haul routes.
-            </div>
-        </div>
+        </a>
 
         <!-- A320neo -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Airbus_A320neo_first_flight.jpg">
-            <div class="plane-title">Airbus A320neo</div>
-            <div class="plane-info">
-                Domestic & International<br>
-                Seats: 150–180<br>
-                Range: 6,300 km
+        <a href="a320neo.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Airbus_A320neo_first_flight.jpg">
+                <div class="plane-title">Airbus A320neo</div>
+                <div class="plane-info">
+                    Domestic & International<br>
+                    Seats: 150–180<br>
+                    Range: 6,300 km
+                </div>
+                <div class="plane-extra">
+                    Our workhorse for regional and short international flights.
+                </div>
             </div>
-            <div class="plane-extra">
-                Our workhorse for regional and short international flights.
-            </div>
-        </div>
+        </a>
 
         <!-- 737 MAX 8 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Boeing_737_MAX_8_first_flight.jpg">
-            <div class="plane-title">Boeing 737 MAX 8</div>
-            <div class="plane-info">
-                Medium‑haul<br>
-                Seats: 162–178<br>
-                Range: 6,570 km
+        <a href="b737max8.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Boeing_737_MAX_8_first_flight.jpg">
+                <div class="plane-title">Boeing 737 MAX 8</div>
+                <div class="plane-info">
+                    Medium‑haul<br>
+                    Seats: 162–178<br>
+                    Range: 6,570 km
+                </div>
+                <div class="plane-extra">
+                    Modern narrowbody with improved fuel burn and passenger comfort.
+                </div>
             </div>
-            <div class="plane-extra">
-                Modern narrowbody with improved fuel burn and passenger comfort.
-            </div>
-        </div>
+        </a>
 
         <!-- 747-200 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Boeing_747-200_British_Airways.jpg">
-            <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
-            <div class="plane-info">
-                Legacy jumbo jet<br>
-                Seats: 366–452<br>
-                Range: 12,700 km
+        <a href="b747-200.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Boeing_747-200_British_Airways.jpg">
+                <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
+                <div class="plane-info">
+                    Legacy jumbo jet<br>
+                    Seats: 366–452<br>
+                    Range: 12,700 km
+                </div>
+                <div class="plane-extra">
+                    Our iconic jumbo jet, restored for special heritage flights.
+                </div>
             </div>
-            <div class="plane-extra">
-                Our iconic jumbo jet, restored for special heritage flights.
-            </div>
-        </div>
+        </a>
 
         <!-- 767-300ER -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Delta_Air_Lines_Boeing_767-300ER.jpg">
-            <div class="plane-title">Boeing 767‑300ER</div>
-            <div class="plane-info">
-                Mid‑haul international<br>
-                Seats: 218–269<br>
-                Range: 11,000 km
+        <a href="b767-300er.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Delta_Air_Lines_Boeing_767-300ER.jpg">
+                <div class="plane-title">Boeing 767‑300ER</div>
+                <div class="plane-info">
+                    Mid‑haul international<br>
+                    Seats: 218–269<br>
+                    Range: 11,000 km
+                </div>
+                <div class="plane-extra">
+                    Reliable twin‑aisle aircraft perfect for mid‑range international routes.
+                </div>
             </div>
-            <div class="plane-extra">
-                Reliable twin‑aisle aircraft perfect for mid‑range international routes.
-            </div>
-        </div>
+        </a>
 
         <!-- ATR 72-600 -->
-        <div class="plane-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg">
-            <div class="plane-title">ATR 72‑600</div>
-            <div class="plane-info">
-                Short‑haul turboprop<br>
-                Seats: 70<br>
-                Range: 1,500 km
+        <a href="atr72600.html" class="card-link">
+            <div class="plane-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg">
+                <div class="plane-title">ATR 72‑600</div>
+                <div class="plane-info">
+                    Short‑haul turboprop<br>
+                    Seats: 70<br>
+                    Range: 1,500 km
+                </div>
+                <div class="plane-extra">
+                    Ideal for short‑runway airports and regional island hops.
+                </div>
             </div>
-            <div class="plane-extra">
-                Ideal for short‑runway airports and regional island hops.
-            </div>
-        </div>
+        </a>
 
     </div>
 
-    <!-- REAL tilt animation -->
     <script>
         document.querySelectorAll('.plane-card').forEach(card => {
             card.addEventListener('mousemove', e => {
