@@ -43,7 +43,6 @@
         /* Airline Logo */
         .logo {
             height: 45px;
-            vertical-align: middle;
             margin-right: 25px;
             transition: 0.3s ease;
         }
@@ -53,11 +52,11 @@
             transform: scale(1.05);
         }
 
-        /* ✅ Balanced manufacturer logos */
+        /* ⭐ Balanced Manufacturer Logos */
         .brand-logo {
             display: block;
             margin: 0 auto 10px auto;
-            max-height: 45px; /* keeps ATR normal and Airbus/Boeing crisp */
+            max-height: 45px; /* FIXED — ATR no longer huge */
             width: auto;
             object-fit: contain;
             opacity: 0.9;
@@ -83,7 +82,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Fleet grid */
+        /* Fleet Grid */
         .fleet-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -91,13 +90,11 @@
             padding: 20px;
             width: 90%;
             margin: auto;
-            perspective: 1000px;
         }
 
         .card-link {
             text-decoration: none;
             color: inherit;
-            display: block;
         }
 
         .plane-card {
@@ -107,7 +104,6 @@
             box-shadow: 0 0 10px #ccc;
             text-align: center;
             transition: transform 0.15s ease-out, box-shadow 0.2s ease;
-            transform-style: preserve-3d;
             animation: popIn 0.6s ease-out;
         }
 
@@ -119,8 +115,8 @@
         .plane-card img:not(.brand-logo) {
             width: 100%;
             border-radius: 10px;
+            margin-top: 8px;
             transition: transform 0.3s ease;
-            margin-top: 5px;
         }
 
         .plane-card:hover img:not(.brand-logo) {
@@ -163,12 +159,10 @@
 
 <body>
 
-    <!-- ⭐ Updated Navbar with Your Logo -->
+    <!-- Navbar -->
     <div class="navbar">
         <a href="index.html">
-            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
-                 class="logo" 
-                 alt="GlazedKimpabAir Logo">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" class="logo">
         </a>
         <a href="index.html">Home</a>
         <a href="fleet.html">Fleet</a>
@@ -180,7 +174,7 @@
 
     <div class="fleet-container">
 
-        <!-- Airbus A350‑1000 -->
+        <!-- A350-1000 -->
         <a href="a350.html" class="card-link">
             <div class="plane-card">
                 <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
@@ -196,11 +190,10 @@
             </div>
         </a>
 
-        <!-- Airbus A330‑900neo -->
+        <!-- A330-900neo -->
         <a href="a330neo.html" class="card-link">
             <div class="plane-card">
                 <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
                 <div class="plane-title">Airbus A330‑900neo</div>
                 <div class="plane-info">
                     Efficient long‑haul<br>
@@ -213,11 +206,10 @@
             </div>
         </a>
 
-        <!-- Airbus A320neo -->
+        <!-- A320neo -->
         <a href="a320neo.html" class="card-link">
             <div class="plane-card">
                 <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Airbus_A320neo_first_flight.jpg">
                 <div class="plane-title">Airbus A320neo</div>
                 <div class="plane-info">
                     Domestic & International<br>
@@ -234,7 +226,6 @@
         <a href="b737max8.html" class="card-link">
             <div class="plane-card">
                 <img src="Boeing-Logo-700x394.png" class="brand-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Boeing_737_MAX_8_first_flight.jpg">
                 <div class="plane-title">Boeing 737 MAX 8</div>
                 <div class="plane-info">
                     Medium‑haul<br>
@@ -251,11 +242,51 @@
         <a href="b747-200.html" class="card-link">
             <div class="plane-card">
                 <img src="Boeing-Logo-700x394.png" class="brand-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Boeing_747-200_British_Airways.jpg">
                 <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
                 <div class="plane-info">
                     Legacy jumbo jet<br>
                     Seats: 366–452<br>
                     Range: 12,700 km
                 </div>
-                <div class
+                <div class="plane-extra">
+                    Our iconic jumbo jet, restored for special heritage flights.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 767‑300ER -->
+        <a href="b767-300er.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <div class="plane-title">Boeing 767‑300ER</div>
+                <div class="plane-info">
+                    Mid‑haul international<br>
+                    Seats: 218–269<br>
+                    Range: 11,000 km
+                </div>
+                <div class="plane-extra">
+                    Reliable twin‑aisle aircraft perfect for mid‑range international routes.
+                </div>
+            </div>
+        </a>
+
+        <!-- ATR 72‑600 -->
+        <a href="atr72600.html" class="card-link">
+            <div class="plane-card">
+                <img src="Atr_new.png" class="brand-logo">
+                <div class="plane-title">ATR 72‑600</div>
+                <div class="plane-info">
+                    Short‑haul turboprop<br>
+                    Seats: 70<br>
+                    Range: 1,500 km
+                </div>
+                <div class="plane-extra">
+                    Ideal for short‑runway airports and regional island hops.
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
