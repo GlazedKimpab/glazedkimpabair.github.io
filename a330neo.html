@@ -5,33 +5,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body { margin:0; font-family:'Montserrat',sans-serif; background:#f4f4f4; animation:fadeIn 1s ease-in-out; }
+        body { 
+            margin:0; 
+            font-family:'Montserrat',sans-serif; 
+            background:#f4f4f4; 
+            animation:fadeIn 1s ease-in-out; 
+        }
         @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
-        .navbar { background:#003366; padding:15px; color:white; font-size:20px; }
-        .navbar a { color:white; margin-right:20px; text-decoration:none; font-weight:600; }
+        /* Shared animation classes */
+        .fade-up { 
+            opacity:0; 
+            transform:translateY(20px); 
+            animation:fadeUp 0.8s ease-out forwards; 
+        }
+        @keyframes fadeUp { 
+            to { opacity:1; transform:translateY(0); } 
+        }
 
-        .header { text-align:center; padding:40px; font-size:42px; font-weight:700; }
+        .slide-in {
+            opacity:0;
+            transform:translateX(-40px);
+            animation:slideIn 0.8s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to { opacity:1; transform:translateX(0); }
+        }
 
-        .aircraft-img { width:80%; max-width:900px; display:block; margin:auto; border-radius:12px; box-shadow:0 0 15px #ccc; }
+        .glow:hover {
+            box-shadow:0 0 25px rgba(0, 150, 255, 0.6);
+            transform:scale(1.02);
+            transition:0.3s;
+        }
 
-        .info-box { width:70%; margin:40px auto; background:white; padding:25px; border-radius:12px; box-shadow:0 0 10px #ccc; font-size:18px; line-height:1.6; }
+        .navbar { 
+            background:#003366; 
+            padding:15px; 
+            color:white; 
+            font-size:20px; 
+        }
+        .navbar a { 
+            color:white; 
+            margin-right:20px; 
+            text-decoration:none; 
+            font-weight:600; 
+        }
+
+        .header { 
+            text-align:center; 
+            padding:40px; 
+            font-size:42px; 
+            font-weight:700; 
+        }
+
+        .aircraft-img { 
+            width:80%; 
+            max-width:900px; 
+            display:block; 
+            margin:auto; 
+            border-radius:12px; 
+            box-shadow:0 0 15px #ccc; 
+        }
+
+        .info-box { 
+            width:70%; 
+            margin:40px auto; 
+            background:white; 
+            padding:25px; 
+            border-radius:12px; 
+            box-shadow:0 0 10px #ccc; 
+            font-size:18px; 
+            line-height:1.6; 
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="navbar">
+    <div class="navbar slide-in">
         GlazedKimpabAir
-        <a href="index.html">Home</a>
-        <a href="fleet.html">Fleet</a>
+        <a href="../index.html">Home</a>
+        <a href="../fleet.html">Fleet</a>
     </div>
 
-    <div class="header">Airbus A330‑900neo</div>
+    <div class="header fade-up">Airbus A330‑900neo</div>
 
-    <img class="aircraft-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
+    <img class="aircraft-img fade-up glow" 
+         src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Airbus_A330-900neo_first_flight.jpg">
 
-    <div class="info-box">
+    <div class="info-box fade-up">
         <b>Role:</b> Efficient long‑haul aircraft<br>
         <b>Seats:</b> 260–300<br>
         <b>Range:</b> 13,300 km<br><br>
