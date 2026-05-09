@@ -55,8 +55,11 @@
 
         /* Manufacturer logos */
         .brand-logo {
-            height: 35px;
-            margin-bottom: 10px;
+            display: block;
+            margin: 0 auto 10px auto;
+            height: 40px;
+            width: auto;
+            object-fit: contain;
             opacity: 0.9;
             transition: 0.3s ease;
         }
@@ -113,13 +116,14 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        .plane-card img {
+        .plane-card img:not(.brand-logo) {
             width: 100%;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            margin-top: 5px;
         }
 
-        .plane-card:hover img {
+        .plane-card:hover img:not(.brand-logo) {
             transform: scale(1.05);
         }
 
@@ -227,8 +231,73 @@
             </div>
         </a>
 
-        <!-- Boeing and ATR remain unchanged -->
-        <!-- (You can ask me to add Boeing + ATR logos next) -->
+        <!-- Boeing 737 MAX 8 -->
+        <a href="b737max8.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Boeing_737_MAX_8_first_flight.jpg">
+                <div class="plane-title">Boeing 737 MAX 8</div>
+                <div class="plane-info">
+                    Medium‑haul<br>
+                    Seats: 162–178<br>
+                    Range: 6,570 km
+                </div>
+                <div class="plane-extra">
+                    Modern narrowbody with improved fuel burn and passenger comfort.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 747-200 -->
+        <a href="b747-200.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Boeing_747-200_British_Airways.jpg">
+                <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
+                <div class="plane-info">
+                    Legacy jumbo jet<br>
+                    Seats: 366–452<br>
+                    Range: 12,700 km
+                </div>
+                <div class="plane-extra">
+                    Our iconic jumbo jet, restored for special heritage flights.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 767-300ER -->
+        <a href="b767-300er.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Delta_Air_Lines_Boeing_767-300ER.jpg">
+                <div class="plane-title">Boeing 767‑300ER</div>
+                <div class="plane-info">
+                    Mid‑haul international<br>
+                    Seats: 218–269<br>
+                    Range: 11,000 km
+                </div>
+                <div class="plane-extra">
+                    Reliable twin‑aisle aircraft perfect for mid‑range international routes.
+                </div>
+            </div>
+        </a>
+
+        <!-- ATR 72-600 -->
+        <a href="atr72600.html" class="card-link">
+            <div class="plane-card">
+                <img src="Atr_new.png" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg">
+                <div class="plane-title">ATR 72‑600</div>
+                <div class="plane-info">
+                    Short‑haul turboprop<br>
+                    Seats: 70<br>
+                    Range: 1,500 km
+                </div>
+                <div class="plane-extra">
+                    Ideal for short‑runway airports and regional island hops.
+                </div>
+            </div>
+        </a>
 
     </div>
 
