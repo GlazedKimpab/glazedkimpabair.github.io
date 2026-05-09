@@ -5,25 +5,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Fade-in animation */
         body {
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-        body {
+            animation: fadeIn 1.2s ease-in-out;
             margin: 0;
             font-family: Montserrat, sans-serif;
             background-color: #f4f4f4;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navbar */
         .navbar {
             background-color: #003366;
             padding: 15px;
             color: white;
             font-size: 20px;
+            display: flex;
+            align-items: center;
         }
 
         .navbar a {
@@ -33,6 +35,20 @@
             font-weight: bold;
         }
 
+        /* Logo styling */
+        .logo {
+            height: 45px;
+            vertical-align: middle;
+            margin-right: 25px;
+            transition: 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
+            transform: scale(1.05);
+        }
+
+        /* Hero section */
         .hero {
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Airplane_sky.jpg/1920px-Airplane_sky.jpg');
             background-size: cover;
@@ -56,8 +72,13 @@
 
 <body>
 
+    <!-- ⭐ Updated Navbar with Your Logo -->
     <div class="navbar">
-        GlazedKimpabAir
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
+                 class="logo" 
+                 alt="GlazedKimpabAir Logo">
+        </a>
         <a href="index.html">Home</a>
         <a href="fleet.html">Fleet</a>
         <a href="#">Destinations</a>
