@@ -71,7 +71,7 @@
             padding: 20px;
             box-shadow: 0 0 10px #ccc;
             text-align: center;
-            transition: transform 0.1s ease-out, box-shadow 0.2s ease;
+            transition: transform 0.15s ease-out, box-shadow 0.2s ease;
             transform-style: preserve-3d; /* REQUIRED */
             animation: popIn 0.6s ease-out;
         }
@@ -90,6 +90,27 @@
 
         .plane-card:hover img {
             transform: scale(1.05);
+        }
+
+        /* Expand + reveal description */
+        .plane-extra {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .plane-card:hover {
+            box-shadow: 0 0 20px #bbb;
+            transform: scale(1.05);
+        }
+
+        .plane-card:hover .plane-extra {
+            opacity: 1;
+            max-height: 200px;
         }
 
         /* Text */
@@ -130,6 +151,9 @@
                 Seats: 350–410<br>
                 Range: 16,100 km
             </div>
+            <div class="plane-extra">
+                Our premium long‑haul aircraft with next‑gen comfort and ultra‑quiet cabins.
+            </div>
         </div>
 
         <!-- A330-900neo -->
@@ -140,6 +164,9 @@
                 Efficient long‑haul<br>
                 Seats: 260–300<br>
                 Range: 13,300 km
+            </div>
+            <div class="plane-extra">
+                Fuel‑efficient widebody ideal for medium and long‑haul routes.
             </div>
         </div>
 
@@ -152,6 +179,9 @@
                 Seats: 150–180<br>
                 Range: 6,300 km
             </div>
+            <div class="plane-extra">
+                Our workhorse for regional and short international flights.
+            </div>
         </div>
 
         <!-- 737 MAX 8 -->
@@ -162,6 +192,9 @@
                 Medium‑haul<br>
                 Seats: 162–178<br>
                 Range: 6,570 km
+            </div>
+            <div class="plane-extra">
+                Modern narrowbody with improved fuel burn and passenger comfort.
             </div>
         </div>
 
@@ -174,6 +207,9 @@
                 Seats: 366–452<br>
                 Range: 12,700 km
             </div>
+            <div class="plane-extra">
+                Our iconic jumbo jet, restored for special heritage flights.
+            </div>
         </div>
 
         <!-- 767-300ER -->
@@ -185,6 +221,9 @@
                 Seats: 218–269<br>
                 Range: 11,000 km
             </div>
+            <div class="plane-extra">
+                Reliable twin‑aisle aircraft perfect for mid‑range international routes.
+            </div>
         </div>
 
         <!-- ATR 72-600 -->
@@ -195,6 +234,9 @@
                 Short‑haul turboprop<br>
                 Seats: 70<br>
                 Range: 1,500 km
+            </div>
+            <div class="plane-extra">
+                Ideal for short‑runway airports and regional island hops.
             </div>
         </div>
 
@@ -214,7 +256,7 @@
                 const rotateX = ((y - centerY) / 15) * -1;
                 const rotateY = (x - centerX) / 15;
 
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
             });
 
             card.addEventListener('mouseleave', () => {
