@@ -1,73 +1,136 @@
-<style>
-    body { 
-        margin:0; 
-        font-family:'Montserrat',sans-serif; 
-        background:#f4f4f4; 
-        animation:fadeIn 1s ease-in-out; 
-    }
-    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boeing 737 MAX 8 — GlazedKimpabAir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .fade-up { 
-        opacity:0; 
-        transform:translateY(20px); 
-        animation:fadeUp 0.8s ease-out forwards; 
-    }
-    @keyframes fadeUp { 
-        to { opacity:1; transform:translateY(0); } 
-    }
+    <style>
+        body { 
+            margin:0; 
+            font-family:'Montserrat',sans-serif; 
+            background:#f4f4f4; 
+            animation:fadeIn 1s ease-in-out; 
+        }
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
-    .slide-in {
-        opacity:0;
-        transform:translateX(-40px);
-        animation:slideIn 0.8s ease-out forwards;
-    }
-    @keyframes slideIn {
-        to { opacity:1; transform:translateX(0); }
-    }
+        .fade-up { 
+            opacity:0; 
+            transform:translateY(20px); 
+            animation:fadeUp 0.8s ease-out forwards; 
+        }
+        @keyframes fadeUp { 
+            to { opacity:1; transform:translateY(0); } 
+        }
 
-    .glow:hover {
-        box-shadow:0 0 25px rgba(0, 150, 255, 0.6);
-        transform:scale(1.02);
-        transition:0.3s;
-    }
+        .slide-in {
+            opacity:0;
+            transform:translateX(-40px);
+            animation:slideIn 0.8s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to { opacity:1; transform:translateX(0); }
+        }
 
-    .navbar { 
-        background:#003366; 
-        padding:15px; 
-        color:white; 
-        font-size:20px; 
-    }
-    .navbar a { 
-        color:white; 
-        margin-right:20px; 
-        text-decoration:none; 
-        font-weight:600; 
-    }
+        .glow:hover {
+            box-shadow:0 0 25px rgba(0, 150, 255, 0.6);
+            transform:scale(1.02);
+            transition:0.3s;
+        }
 
-    .header { 
-        text-align:center; 
-        padding:40px; 
-        font-size:42px; 
-        font-weight:700; 
-    }
+        /* ⭐ FIXED NAVBAR */
+        .navbar { 
+            background:#003366; 
+            padding:15px; 
+            color:white; 
+            font-size:20px; 
+            display:flex;
+            align-items:center;
+        }
+        .navbar a { 
+            color:white; 
+            margin-right:20px; 
+            text-decoration:none; 
+            font-weight:600; 
+        }
 
-    .aircraft-img { 
-        width:80%; 
-        max-width:900px; 
-        display:block; 
-        margin:auto; 
-        border-radius:12px; 
-        box-shadow:0 0 15px #ccc; 
-    }
+        .logo {
+            height:45px;
+            margin-right:25px;
+        }
 
-    .info-box { 
-        width:70%; 
-        margin:40px auto; 
-        background:white; 
-        padding:25px; 
-        border-radius:12px; 
-        box-shadow:0 0 10px #ccc; 
-        font-size:18px; 
-        line-height:1.6; 
-    }
-</style>
+        .header { 
+            text-align:center; 
+            padding:40px; 
+            font-size:42px; 
+            font-weight:700; 
+        }
+
+        .aircraft-img { 
+            width:80%; 
+            max-width:900px; 
+            display:block; 
+            margin:auto; 
+            border-radius:12px; 
+            box-shadow:0 0 15px #ccc; 
+        }
+
+        .info-box { 
+            width:70%; 
+            margin:40px auto; 
+            background:white; 
+            padding:25px; 
+            border-radius:12px; 
+            box-shadow:0 0 10px #ccc; 
+            font-size:18px; 
+            line-height:1.6; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ⭐ FIXED NAVBAR -->
+    <div class="navbar slide-in">
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
+                 class="logo" 
+                 alt="GlazedKimpabAir Logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
+    </div>
+
+    <div class="header fade-up">Boeing 737 MAX 8</div>
+
+    <img class="aircraft-img fade-up glow" 
+         src="Screenshot 2026-04-25 152428.png" 
+         alt="GlazedKimpabAir Boeing 737 MAX 8">
+
+    <div class="info-box fade-up">
+        <b>Role:</b> Medium‑haul narrowbody<br>
+        <b>Seats:</b> 162–178<br>
+        <b>Range:</b> 6,570 km<br><br>
+
+        The Boeing 737 MAX 8 serves GlazedKimpabAir’s medium‑haul network, 
+        offering improved fuel burn and a modern passenger experience.
+
+        <br><br>GlazedKimpabAir wanted a second narrow‑body family to diversify risk 
+        and negotiate better deals with manufacturers.
+
+        <br><br><b>Why it joined:</b><br>
+        – Boeing offered a massive discount<br>
+        – Free simulator training<br>
+        – Priority delivery slots<br>
+
+        <br><b>Assigned routes:</b><br>
+        Japan, Vietnam, Philippines, China
+
+        <br><br><b>Crew nickname:</b><br>
+        “The Arrow.”  
+        Fast climb, sharp profile, efficient on 3–5 hour routes.
+    </div>
+
+</body>
+</html>
