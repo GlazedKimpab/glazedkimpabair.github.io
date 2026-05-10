@@ -37,17 +37,25 @@
             transition:0.3s;
         }
 
+        /* ⭐ FIXED NAVBAR */
         .navbar { 
             background:#003366; 
             padding:15px; 
             color:white; 
             font-size:20px; 
+            display:flex;
+            align-items:center;
         }
         .navbar a { 
             color:white; 
             margin-right:20px; 
             text-decoration:none; 
             font-weight:600; 
+        }
+
+        .logo {
+            height:45px;
+            margin-right:25px;
         }
 
         .header { 
@@ -81,16 +89,24 @@
 
 <body>
 
+    <!-- ⭐ FIXED NAVBAR -->
     <div class="navbar slide-in">
-        GlazedKimpabAir
-        <a href="../index.html">Home</a>
-        <a href="../fleet.html">Fleet</a>
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
+                 class="logo" 
+                 alt="GlazedKimpabAir Logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
     </div>
 
     <div class="header fade-up">ATR 72‑600</div>
 
     <img class="aircraft-img fade-up glow" 
-         src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg">
+         src="https://upload.wikimedia.org/wikipedia/commons/4/4f/ATR_72-600.jpg"
+         alt="GlazedKimpabAir ATR 72‑600">
 
     <div class="info-box fade-up">
         <b>Role:</b> Short‑haul turboprop<br>
@@ -99,6 +115,17 @@
 
         The ATR 72‑600 connects GlazedKimpabAir’s shortest routes, 
         ideal for short‑runway airports and regional island hops.
+
+        <br><br>It is the perfect aircraft for Jeju, Busan, Pohang, and island‑to‑island routes.
+
+        <br><br><b>Why it joined:</b><br>
+        – Excellent fuel efficiency<br>
+        – Great for short runways<br>
+        – Low operating cost<br>
+        – Perfect for regional expansion<br>
+
+        <br><b>Passenger nickname:</b><br>
+        “The Island Hopper.”
     </div>
 
 </body>
