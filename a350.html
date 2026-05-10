@@ -37,17 +37,25 @@
             transition:0.3s;
         }
 
+        /* ⭐ FIXED NAVBAR */
         .navbar { 
             background:#003366; 
             padding:15px; 
             color:white; 
             font-size:20px; 
+            display:flex;
+            align-items:center;
         }
         .navbar a { 
             color:white; 
             margin-right:20px; 
             text-decoration:none; 
             font-weight:600; 
+        }
+
+        .logo {
+            height:45px;
+            margin-right:25px;
         }
 
         .header { 
@@ -81,15 +89,21 @@
 
 <body>
 
+    <!-- ⭐ FIXED NAVBAR -->
     <div class="navbar slide-in">
-        GlazedKimpabAir
-        <a href="../index.html">Home</a>
-        <a href="../fleet.html">Fleet</a>
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
+                 class="logo" 
+                 alt="GlazedKimpabAir Logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
     </div>
 
     <div class="header fade-up">Airbus A350‑1000</div>
 
-    <!-- ⭐ YOUR A350 IMAGE -->
     <img class="aircraft-img fade-up glow" 
          src="Screenshot 2026-04-25 151429.png" 
          alt="GlazedKimpabAir A350‑1000">
@@ -97,12 +111,18 @@
     <div class="info-box fade-up">
         <b>Role:</b> Flagship long‑haul aircraft<br>
         <b>Seats:</b> 350–410<br>
-        <b>Range:</b> 16,100 km<br><br>
-        <b>Aircraft type:</b> Wide-Body<br>
+        <b>Range:</b> 16,100 km<br>
+        <b>Aircraft type:</b> Wide‑body<br><br>
 
         The Airbus A350‑1000 is GlazedKimpabAir’s premium long‑haul flagship, 
-        offering ultra‑quiet cabins, advanced fuel efficiency, and next‑generation comfort. GlazedKimpabAir needed a real long‑haul flagship, tested options in 2023, and chose the A350‑1000 after a private demo in Toulouse.
-They ordered two in early 2024, got the first one in October, named it “The Sky Sword,” and launched it on the Seoul–Copenhagen route.
+        offering ultra‑quiet cabins, advanced fuel efficiency, and next‑generation comfort.
+
+        <br><br>GlazedKimpabAir evaluated several long‑haul options in 2023 and chose the A350‑1000 
+        after a private demonstration in Toulouse.
+
+        <br><br>Two aircraft were ordered in early 2024.  
+        The first was delivered in October 2024 and named <b>“The Sky Sword.”</b>  
+        It launched on the Seoul–Copenhagen route as the airline’s new prestige service.
     </div>
 
 </body>
