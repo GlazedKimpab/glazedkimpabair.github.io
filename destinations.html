@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destinations — GlazedKimpabAir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #f4f4f4;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #003366;
+            padding: 15px;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logo {
+            height: 45px;
+            margin-right: 25px;
+            transition: 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
+            transform: scale(1.05);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        /* Destination Grid */
+        .dest-grid {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding-bottom: 50px;
+        }
+
+        .dest-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #ccc;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .dest-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px #bbb;
+        }
+
+        .dest-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .dest-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dest-info h3 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .dest-info p {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" class="logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
+    </div>
+
+    <div class="header fade-up">Our Destinations</div>
+
+    <div class="dest-grid fade-up">
+
+        <!-- Example Destination Cards -->
+        <div class="dest-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Seoul_skyline.jpg">
+            <div class="dest-info">
+                <h3>Seoul</h3>
+                <p>Our home hub — the heart of GlazedKimpabAir.</p>
+            </div>
+        </div>
+
+        <div class="dest-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Copenhagen_skyline.jpg">
+            <div class="dest-info">
+                <h3>Copenhagen</h3>
+                <p>Flagship A350‑1000 route — premium long‑haul service.</p>
+            </div>
+        </div>
+
+        <div class="dest-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tokyo_Skyline.jpg">
+            <div class="dest-info">
+                <h3>Tokyo</h3>
+                <p>Fast, efficient service on the A320neo and 737 MAX.</p>
+            </div>
+        </div>
+
+        <div class="dest-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Singapore_skyline.jpg">
+            <div class="dest-info">
+                <h3>Singapore</h3>
+                <p>Mid‑haul 767‑300ER route — business and leisure hub.</p>
+            </div>
+        </div>
+
+        <div class="dest-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Jeju_Island.jpg">
+            <div class="dest-info">
+                <h3>Jeju</h3>
+                <p>ATR 72‑600 island hops — fast, scenic, iconic.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
