@@ -37,17 +37,25 @@
             transition:0.3s;
         }
 
+        /* ⭐ FIXED NAVBAR */
         .navbar { 
             background:#003366; 
             padding:15px; 
             color:white; 
             font-size:20px; 
+            display:flex;
+            align-items:center;
         }
         .navbar a { 
             color:white; 
             margin-right:20px; 
             text-decoration:none; 
             font-weight:600; 
+        }
+
+        .logo {
+            height:45px;
+            margin-right:25px;
         }
 
         .header { 
@@ -81,15 +89,21 @@
 
 <body>
 
+    <!-- ⭐ FIXED NAVBAR -->
     <div class="navbar slide-in">
-        GlazedKimpabAir
-        <a href="../index.html">Home</a>
-        <a href="../fleet.html">Fleet</a>
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" 
+                 class="logo" 
+                 alt="GlazedKimpabAir Logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
     </div>
 
     <div class="header fade-up">Boeing 767‑300ER</div>
 
-    <!-- ⭐ YOUR 767 IMAGE -->
     <img class="aircraft-img fade-up glow" 
          src="Screenshot 2026-04-25 152135.png" 
          alt="GlazedKimpabAir Boeing 767‑300ER">
@@ -99,18 +113,22 @@
         <b>Seats:</b> 218–269<br>
         <b>Range:</b> 11,000 km<br><br>
 
-        The Boeing 767‑300ER is a reliable widebody for GlazedKimpabAir’s mid‑range international routes, 
-        balancing capacity, comfort, and efficiency. As the 747-200 went on, we needed something cheaper, more flexible, and less thirsty.
-Enter the Boeing 767‑300ER.
-It was the perfect aircraft for us.
-- Perfect for mid‑long routes like Singapore, Sydney, and Istanbul
-- Lower operating cost
-- Could operate from secondary airports
-- Ideal for a growing but budget‑limited airline
-The 767-300ER became the airline’s profit engine.
+        The Boeing 767‑300ER is a reliable widebody for GlazedKimpabAir’s mid‑range international routes,
+        balancing capacity, comfort, and efficiency.
 
-Crew nickname:
-“The Reliable Unc.”
+        <br><br>As the 747‑200 aged, the airline needed something cheaper, more flexible, and far less thirsty.
+
+        <br><br><b>Enter the Boeing 767‑300ER.</b><br>
+        It became the perfect aircraft for a growing but budget‑limited airline.
+
+        <br><br><b>Why it joined:</b><br>
+        – Perfect for mid‑long routes like Singapore, Sydney, and Istanbul<br>
+        – Lower operating cost<br>
+        – Could operate from secondary airports<br>
+        – Excellent reliability<br>
+
+        <br><b>Crew nickname:</b><br>
+        “The Reliable Unc.”
     </div>
 
 </body>
