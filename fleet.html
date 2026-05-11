@@ -18,7 +18,7 @@
             to { opacity: 1; }
         }
 
-        /* ⭐ FIXED NAVBAR */
+        /* Navbar */
         .navbar {
             background-color: #003366;
             padding: 15px;
@@ -27,8 +27,6 @@
             display: flex;
             align-items: center;
             animation: dropDown 0.8s ease-out;
-            position: relative;
-            z-index: 9999; /* ALWAYS ON TOP */
         }
 
         @keyframes dropDown {
@@ -43,6 +41,7 @@
             font-weight: 600;
         }
 
+        /* Airline Logo */
         .logo {
             height: 45px;
             margin-right: 25px;
@@ -51,6 +50,22 @@
 
         .logo:hover {
             filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
+            transform: scale(1.05);
+        }
+
+        /* ⭐ Balanced Manufacturer Logos */
+        .brand-logo {
+            display: block;
+            margin: 0 auto 10px auto;
+            max-height: 45px; /* FIXED — ATR no longer huge */
+            width: auto;
+            object-fit: contain;
+            opacity: 0.9;
+            transition: 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            opacity: 1;
             transform: scale(1.05);
         }
 
@@ -68,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ⭐ FIXED FLEET GRID */
+        /* Fleet Grid */
         .fleet-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -76,8 +91,6 @@
             padding: 20px;
             width: 90%;
             margin: auto;
-            position: relative;
-            z-index: 1; /* BELOW NAVBAR */
         }
 
         .card-link {
@@ -98,21 +111,6 @@
         @keyframes popIn {
             from { opacity: 0; transform: scale(0.85); }
             to { opacity: 1; transform: scale(1); }
-        }
-
-        .brand-logo {
-            display: block;
-            margin: 0 auto 10px auto;
-            max-height: 45px;
-            width: auto;
-            object-fit: contain;
-            opacity: 0.9;
-            transition: 0.3s ease;
-        }
-
-        .brand-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
         }
 
         .plane-card img:not(.brand-logo) {
@@ -169,15 +167,134 @@
         </a>
         <a href="index.html">Home</a>
         <a href="fleet.html">Fleet</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="about.html">About Us</a>
+        <a href="#">Destinations</a>
+        <a href="#">About Us</a>
     </div>
 
     <div class="header">Our Fleet</div>
 
     <div class="fleet-container">
-        <!-- Your aircraft cards remain unchanged -->
-        <!-- A350, A330neo, A320neo, 737 MAX, 747-200, 767-300ER, ATR 72-600 -->
+
+        <!-- A350-1000 -->
+        <a href="a350.html" class="card-link">
+            <div class="plane-card">
+                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
+                <div class="plane-title">Airbus A350‑1000</div>
+                <div class="plane-info">
+                    Flagship long‑haul<br>
+                    Seats: 350–410<br>
+                    Range: 16,100 km<br>
+                    Aircraft type: Wide-Body
+
+                </div>
+                <div class="plane-extra">
+                    Our premium long‑haul aircraft with next‑gen comfort and ultra‑quiet cabins.
+                </div>
+            </div>
+        </a>
+
+        <!-- A330-900neo -->
+        <a href="a330neo.html" class="card-link">
+            <div class="plane-card">
+                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
+                <div class="plane-title">Airbus A330‑900neo</div>
+                <div class="plane-info">
+                    Efficient long‑haul<br>
+                    Seats: 260–300<br>
+                    Range: 13,300 km<br>
+                    Aircraft type: Wide-Body
+                </div>
+                <div class="plane-extra">
+                    Fuel‑efficient widebody ideal for medium and long‑haul routes.
+                </div>
+            </div>
+        </a>
+
+        <!-- A320neo -->
+        <a href="a320neo.html" class="card-link">
+            <div class="plane-card">
+                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
+                <div class="plane-title">Airbus A320neo</div>
+                <div class="plane-info">
+                    Domestic & International<br>
+                    Seats: 150–180<br>
+                    Range: 6,300 km<br>
+                    Aircraft type: Narrow-Body
+                </div>
+                <div class="plane-extra">
+                    Our workhorse for regional and short international flights.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 737 MAX 8 -->
+        <a href="b737max8.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <div class="plane-title">Boeing 737 MAX 8</div>
+                <div class="plane-info">
+                    Medium‑haul<br>
+                    Seats: 162–178<br>
+                    Range: 6,570 km<br>
+                    Aircraft type: Narrow-Body
+                </div>
+                <div class="plane-extra">
+                    Modern narrowbody with improved fuel burn and passenger comfort.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 747‑200 -->
+        <a href="b747-200.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
+                <div class="plane-info">
+                    Legacy jumbo jet<br>
+                    Seats: 366–452<br>
+                    Range: 12,700 km<br>
+                    Aircraft type: Wide-Body
+                </div>
+                <div class="plane-extra">
+                    Our iconic jumbo jet, restored for special heritage flights.
+                </div>
+            </div>
+        </a>
+
+        <!-- Boeing 767‑300ER -->
+        <a href="b767-300er.html" class="card-link">
+            <div class="plane-card">
+                <img src="Boeing-Logo-700x394.png" class="brand-logo">
+                <div class="plane-title">Boeing 767‑300ER</div>
+                <div class="plane-info">
+                    Mid‑haul international<br>
+                    Seats: 218–269<br>
+                    Range: 11,000 km<br>
+                    Aircraft type: Wide-Body
+                </div>
+                <div class="plane-extra">
+                    Reliable twin‑aisle aircraft perfect for mid‑range international routes.
+                </div>
+            </div>
+        </a>
+
+        <!-- ATR 72‑600 -->
+        <a href="atr72600.html" class="card-link">
+            <div class="plane-card">
+                <img src="Atr_new.png" class="brand-logo">
+                <div class="plane-title">ATR 72‑600</div>
+                <div class="plane-info">
+                    Short‑haul turboprop<br>
+                    Seats: 70<br>
+                    Range: 1,500 km<br>
+                    Aircraft Type: Turboprop
+                </div>
+                <div class="plane-extra">
+                    Ideal for short‑runway airports and regional island hops.
+                </div>
+            </div>
+        </a>
+
     </div>
 
 </body>
