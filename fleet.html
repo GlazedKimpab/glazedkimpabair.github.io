@@ -18,7 +18,7 @@
             to { opacity: 1; }
         }
 
-        /* Navbar */
+        /* ⭐ FIXED NAVBAR */
         .navbar {
             background-color: #003366;
             padding: 15px;
@@ -28,7 +28,7 @@
             align-items: center;
             animation: dropDown 0.8s ease-out;
             position: relative;
-            z-index: 9999; /* ⭐ FIXED */
+            z-index: 9999; /* ALWAYS ON TOP */
         }
 
         @keyframes dropDown {
@@ -43,7 +43,6 @@
             font-weight: 600;
         }
 
-        /* Airline Logo */
         .logo {
             height: 45px;
             margin-right: 25px;
@@ -52,22 +51,6 @@
 
         .logo:hover {
             filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
-            transform: scale(1.05);
-        }
-
-        /* Manufacturer Logos */
-        .brand-logo {
-            display: block;
-            margin: 0 auto 10px auto;
-            max-height: 45px;
-            width: auto;
-            object-fit: contain;
-            opacity: 0.9;
-            transition: 0.3s ease;
-        }
-
-        .brand-logo:hover {
-            opacity: 1;
             transform: scale(1.05);
         }
 
@@ -85,7 +68,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Fleet Grid */
+        /* ⭐ FIXED FLEET GRID */
         .fleet-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -93,8 +76,8 @@
             padding: 20px;
             width: 90%;
             margin: auto;
-            z-index: 0; /* ⭐ FIXED */
             position: relative;
+            z-index: 1; /* BELOW NAVBAR */
         }
 
         .card-link {
@@ -115,6 +98,21 @@
         @keyframes popIn {
             from { opacity: 0; transform: scale(0.85); }
             to { opacity: 1; transform: scale(1); }
+        }
+
+        .brand-logo {
+            display: block;
+            margin: 0 auto 10px auto;
+            max-height: 45px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.9;
+            transition: 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         .plane-card img:not(.brand-logo) {
@@ -178,11 +176,8 @@
     <div class="header">Our Fleet</div>
 
     <div class="fleet-container">
-        <!-- your fleet cards unchanged -->
-        <!-- (I kept all your aircraft cards exactly the same) -->
+        <!-- Your aircraft cards remain unchanged -->
         <!-- A350, A330neo, A320neo, 737 MAX, 747-200, 767-300ER, ATR 72-600 -->
-        <!-- No changes needed inside the cards -->
-        <!-- Only navbar and container z-index were fixed -->
     </div>
 
 </body>
