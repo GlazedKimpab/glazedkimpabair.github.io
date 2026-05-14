@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>McDonnell Douglas MD‑11 — GlazedKimpabAir</title>
+    <link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin:0;
+            font-family:'Montserrat',sans-serif;
+            background:#f4f4f4;
+            animation:fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+        .fade-up {
+            opacity:0;
+            transform:translateY(20px);
+            animation:fadeUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity:1; transform:translateY(0); }
+        }
+
+        .slide-in {
+            opacity:0;
+            transform:translateX(-40px);
+            animation:slideIn 0.8s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to { opacity:1; transform:translateX(0); }
+        }
+
+        .glow:hover {
+            box-shadow:0 0 25px rgba(0, 150, 255, 0.6);
+            transform:scale(1.02);
+            transition:0.3s;
+        }
+
+        /* Navbar */
+        .navbar {
+            background:#003366;
+            padding:15px;
+            color:white;
+            font-size:20px;
+            display:flex;
+            align-items:center;
+        }
+        .navbar a {
+            color:white;
+            margin-right:20px;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .logo {
+            height:45px;
+            margin-right:25px;
+        }
+
+        .header {
+            text-align:center;
+            padding:40px;
+            font-size:42px;
+            font-weight:700;
+        }
+
+        .aircraft-img {
+            width:80%;
+            max-width:900px;
+            display:block;
+            margin:auto;
+            border-radius:12px;
+            box-shadow:0 0 15px #ccc;
+        }
+
+        .info-box {
+            width:70%;
+            margin:40px auto;
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 0 10px #ccc;
+            font-size:18px;
+            line-height:1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar slide-in">
+        <a href="index.html">
+            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png"
+                 class="logo"
+                 alt="GlazedKimpabAir Logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About Us</a>
+    </div>
+
+    <div class="header fade-up">McDonnell Douglas MD‑11</div>
+
+    <img class="aircraft-img fade-up glow"
+         src="md11_image.png"
+         alt="GlazedKimpabAir MD‑11">
+
+    <div class="info-box fade-up">
+        <b>Role:</b> Long‑haul tri‑jet<br>
+        <b>Seats:</b> 285–323<br>
+        <b>Range:</b> 12,455 km<br><br>
+
+        The MD‑11 is GlazedKimpabAir’s newest addition — a rare, powerful tri‑jet
+        that blends retro aviation charm with long‑haul capability.
+
+        <br><br><b>We acquired it just 3 days ago.</b><br><br>
+
+        The aircraft came from a cargo airline in California that had just retired
+        its last MD‑11. The moment the aircraft was listed, GlazedKimpabAir’s founders
+        jumped on a flight to negotiate in person.
+
+        <br><br><b>The seller said:</b><br>
+        “If you can get it out of here by the weekend, it’s yours.”
+
+        <br><br>So the team worked nonstop — paperwork, inspections, repainting,
+        and a full systems check — all in under 72 hours.
+
+        <br><br>On the third day, the MD‑11 lifted off for Seoul wearing a temporary
+        white coat and a small GlazedKimpabAir sticker on the nose. Spotters went crazy.
+
+        <br><br><b>Why we bought it:</b><br>
+        • It’s iconic<br>
+        • It’s powerful<br>
+        • It’s a tri‑jet — and tri‑jets are aviation culture<br>
+        • It fits GKA’s “retro‑modern” identity perfectly
+
+        <br><br>Once it arrived in Seoul, it immediately entered a full repaint
+        and cabin refresh. The MD‑11 will soon operate special long‑haul showcase
+        flights and aviation‑themed events.
+
+        <br><br><b>Spotter nickname:</b><br>
+        “The Triple Queen.”
+    </div>
+
+</body>
+</html>
