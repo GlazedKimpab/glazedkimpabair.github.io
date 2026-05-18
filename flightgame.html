@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GKA Flight Simulator — Control Fix</title>
+  <title>GKA Flight Simulator v3</title>
   <style>
     body {
       margin: 0;
@@ -24,27 +24,25 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const planeImg = new Image();
-planeImg.src = "plane.png"; // your plane image
+planeImg.src = "plane.png";
 
+// Plane physics
 let plane = {
   x: canvas.width * 0.3,
   y: canvas.height * 0.5,
-  speedY: 0,
-  speedX: 0,
+  vx: 0,
+  vy: 0,
   angle: 0,
-  throttle: 0.2
+  throttle: 0.4
 };
 
 let gravity = 0.15;
-let lift = 0.25;
-let keys = {};
+let liftPower = 0.03;
+let drag = 0.995;
 
-document.addEventListener("keydown", e => {
-  keys[e.key] = true;
-});
-document.addEventListener("keyup", e => {
-  keys[e.key] = false;
-});
+let keys = {};
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
 
 // Clouds
 let clouds = [];
@@ -59,28 +57,40 @@ for (let i = 0; i < 6; i++) {
 let runwayY = canvas.height - 120;
 
 function update() {
-  // Throttle control
-  if (keys["ArrowRight"]) plane.throttle += 0.005;
-  if (keys["ArrowLeft"]) plane.throttle -= 0.005;
-  plane.throttle = Math.max(0.05, Math.min(0.5, plane.throttle));
+  // Throttle
+  if (keys["ArrowRight"]) plane.throttle += 0.002;
+  if (keys["ArrowLeft"]) plane.throttle -= 0.002;
+  plane.throttle = Math.max(0.1, Math.min(0.8, plane.throttle));
 
-  // Pitch control
+  // Pitch
   if (keys["ArrowUp"]) plane.angle -= 1.5;
   if (keys["ArrowDown"]) plane.angle += 1.5;
   plane.angle = Math.max(-25, Math.min(25, plane.angle));
 
-  // Physics
-  plane.speedY += gravity - (plane.angle * lift * 0.01);
-  plane.y += plane.speedY;
-  plane.x += plane.throttle * 8;
+  // Forward velocity from throttle
+  plane.vx = Math.cos(plane.angle * Math.PI/180) * plane.throttle * 10;
 
-  // Keep plane in bounds
-  if (plane.y < 50) plane.y = 50;
-  if (plane.y > runwayY - 40) plane.y = runwayY - 40;
+  // Lift (based on speed + pitch)
+  let lift = Math.sin(-plane.angle * Math.PI/180) * plane.throttle * 8;
 
-  // Landing detection
+  // Apply physics
+  plane.vy += gravity - lift;
+  plane.vy *= drag;
+  plane.y += plane.vy;
+  plane.x += plane.vx;
+
+  // Wrap horizontally
+  if (plane.x > canvas.width + 200) plane.x = -200;
+
+  // Prevent going too high
+  if (plane.y < 50) {
+    plane.y = 50;
+    plane.vy = 0;
+  }
+
+  // Landing
   if (plane.y + 40 >= runwayY) {
-    if (Math.abs(plane.speedY) < 2 && Math.abs(plane.angle) < 10) {
+    if (Math.abs(plane.vy) < 2 && Math.abs(plane.angle) < 10) {
       alert("BUTTER LANDING 🧈");
     } else {
       alert("HARD LANDING 💥");
