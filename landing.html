@@ -24,7 +24,6 @@
             transform: translateX(-50%);
             top: 20%;
             transition: top 0.1s, transform 0.1s;
-            <img id="plane" src="image-removebg-preview (1).png">
         }
 
         #runway {
@@ -52,7 +51,9 @@
 <body>
 
 <div id="gameArea">
-    <img id="plane" src="plane.png">
+    <!-- Your plane image imported -->
+    <img id="plane" src="image-removebg-preview (1).png">
+
     <div id="runway"></div>
 
     <div id="hud">
@@ -69,25 +70,14 @@
 
     let speed = 140;      // knots
     let altitude = 1200;  // feet
-    let descentRate = 0;  // ft per tick
     let runwayY = -300;
 
     // Controls
     document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowUp") {
-            altitude -= 40;
-            descentRate = -40;
-        }
-        if (e.key === "ArrowDown") {
-            altitude += 40;
-            descentRate = 40;
-        }
-        if (e.key === "ArrowLeft") {
-            speed -= 5;
-        }
-        if (e.key === "ArrowRight") {
-            speed += 5;
-        }
+        if (e.key === "ArrowUp") altitude -= 40;
+        if (e.key === "ArrowDown") altitude += 40;
+        if (e.key === "ArrowLeft") speed -= 5;
+        if (e.key === "ArrowRight") speed += 5;
 
         speed = Math.max(90, Math.min(180, speed));
         altitude = Math.max(0, altitude);
@@ -97,11 +87,11 @@
     });
 
     function gameLoop() {
-        // Move runway upward (approaching)
+        // Move runway upward
         runwayY += speed * 0.2;
         runway.style.bottom = runwayY + "px";
 
-        // Plane descends automatically
+        // Auto descent
         altitude -= 1.5;
         altDisplay.textContent = Math.max(0, Math.floor(altitude));
 
@@ -109,11 +99,11 @@
         plane.style.top = (altitude / 10) + "%";
 
         // Landing detection
-        if (runwayY > window.innerHeight - 200) {
-            if (speed < 150 && altitude < 50) {
+        if (runwayY > window.innerHeight - 200 && altitude < 60) {
+            if (speed < 150) {
                 alert("Smooth Landing! ✈️\nSpeed: " + speed + " kts\nAltitude: " + altitude + " ft");
             } else {
-                alert("HARD LANDING / CRASH 💥\nSpeed: " + speed + " kts\nAltitude: " + altitude + " ft");
+                alert("HARD LANDING 💥\nSpeed: " + speed + " kts\nAltitude: " + altitude + " ft");
             }
             window.location.reload();
         }
