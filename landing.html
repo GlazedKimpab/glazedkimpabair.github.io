@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GKA Landing Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(#87CEEB, #ffffff);
+            font-family: Montserrat, sans-serif;
+        }
+
+        #gameArea {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #plane {
+            position: absolute;
+            width: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20%;
+            transition: top 0.1s, transform 0.1s;
+        }
+
+        #runway {
+            position: absolute;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 600px;
+            background: url("runway.png") no-repeat center/cover;
+        }
+
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #003366;
+            text-shadow: 0 0 5px white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="gameArea">
+    <img id="plane" src="plane.png">
+    <div id="runway"></div>
+
+    <div id="hud">
+        Speed: <span id="speed">140</span> kts<br>
+        Altitude: <span id="alt">1200</span> ft
+    </div>
+</div>
+
+<script>
+    const plane = document.getElementById("plane");
+    const runway = document.getElementById("runway");
+    const speedDisplay = document.getElementById("speed");
+    const altDisplay = document.getElementById("alt");
+
+    let speed = 140;      // knots
+    let altitude = 1200;  // feet
+    let descentRate = 0;  // ft per tick
+    let runwayY = -300;
+
+    // Controls
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp") {
+            altitude -= 40;
+            descentRate = -40;
+        }
+        if (e.key === "ArrowDown") {
+            altitude += 40;
+            descentRate = 40;
+        }
+        if (e.key === "ArrowLeft") {
+            speed -= 5;
+        }
+        if (e.key === "ArrowRight") {
+            speed += 5;
+        }
+
+        speed = Math.max(90, Math.min(180, speed));
+        altitude = Math.max(0, altitude);
+
+        speedDisplay.textContent = speed;
+        altDisplay.textContent = altitude;
+    });
+
+    function gameLoop() {
+        // Move runway upward (approaching)
+        runwayY += speed * 0.2;
+        runway.style.bottom = runwayY + "px";
+
+        // Plane descends automatically
+        altitude -= 1.5;
+        altDisplay.textContent = Math.max(0, Math.floor(altitude));
+
+        // Plane visual descent
+        plane.style.top = (altitude / 10) + "%";
+
+        // Landing detection
+        if (runwayY > window.innerHeight - 200) {
+            if (speed < 150 && altitude < 50) {
+                alert("Smooth Landing! ✈️\nSpeed: " + speed + " kts\nAltitude: " + altitude + " ft");
+            } else {
+                alert("HARD LANDING / CRASH 💥\nSpeed: " + speed + " kts\nAltitude: " + altitude + " ft");
+            }
+            window.location.reload();
+        }
+
+        requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+</script>
+
+</body>
+</html>
