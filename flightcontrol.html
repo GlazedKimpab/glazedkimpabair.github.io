@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GKA Flight Control</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(#87CEEB, #ffffff);
+      font-family: Montserrat, sans-serif;
+    }
+
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #plane {
+      position: absolute;
+      width: 180px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transition: transform 0.1s linear;
+    }
+
+    #hud {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #003366;
+      text-shadow: 0 0 5px white;
+    }
+
+    #ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      background: #3b3b3b;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="gameArea">
+    <img id="plane" src="image-removebg-preview (1).png">
+    <div id="hud">
+      Speed: <span id="speed">120</span> kts<br>
+      Altitude: <span id="alt">1000</span> ft
+    </div>
+    <div id="ground"></div>
+  </div>
+
+  <script>
+    const plane = document.getElementById("plane");
+    const speedDisplay = document.getElementById("speed");
+    const altDisplay = document.getElementById("alt");
+
+    let speed = 120;
+    let altitude = 1000;
+    let pitch = 0; // degrees
+    let verticalSpeed = 0;
+    let planeY = window.innerHeight / 2;
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowUp") pitch -= 5; // nose up
+      if (e.key === "ArrowDown") pitch += 5; // nose down
+      if (e.key === "ArrowLeft") speed -= 5;
+      if (e.key === "ArrowRight") speed += 5;
+
+      speed = Math.max(60, Math.min(200, speed));
+      pitch = Math.max(-30, Math.min(30, pitch));
+
+      speedDisplay.textContent = speed;
+    });
+
+    function gameLoop() {
+      // Calculate vertical movement based on pitch
+      verticalSpeed = pitch * 0.8;
+      planeY -= verticalSpeed;
+
+      // Keep plane within screen
+      planeY = Math.max(100, Math.min(window.innerHeight - 200, planeY));
+      altitude += verticalSpeed * 0.5;
+
+      // Update visuals
+      plane.style.top = planeY + "px";
+      plane.style.transform = `translate(-50%, -50%) rotate(${pitch}deg)`;
+      altDisplay.textContent = Math.max(0, Math.floor(altitude));
+
+      // Landing detection
+      if (altitude <= 0) {
+        if (speed < 130 && Math.abs(pitch) < 10) {
+          alert("Butter Landing! 🧈\nSpeed: " + speed + " kts");
+        } else {
+          alert("Hard Landing 💥\nSpeed: " + speed + " kts");
+        }
+        window.location.reload();
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+  </script>
+</body>
+</html>
