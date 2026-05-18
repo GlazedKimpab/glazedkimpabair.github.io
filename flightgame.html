@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GKA Flight Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #87CEEB;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="game"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Load plane image
+const planeImg = new Image();
+planeImg.src = "plane.png"; // your plane
+
+// Game variables
+let plane = {
+    x: canvas.width * 0.3,
+    y: canvas.height * 0.5,
+    speedY: 0,
+    speedX: 2,
+    angle: 0,
+    throttle: 0.2
+};
+
+let gravity = 0.15;
+let lift = 0.25;
+
+// Controls
+let keys = {};
+
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
+
+// Clouds
+let clouds = [];
+for (let i = 0; i < 6; i++) {
+    clouds.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * 0.7,
+        size: 150 + Math.random() * 150
+    });
+}
+
+// Runway
+let runwayY = canvas.height - 120;
+
+// Game loop
+function update() {
+    // Throttle control
+    if (keys["ArrowRight"]) plane.throttle += 0.005;
+    if (keys["ArrowLeft"]) plane.throttle -= 0.005;
+
+    plane.throttle = Math.max(0.05, Math.min(0.5, plane.throttle));
+
+    // Pitch control
+    if (keys["ArrowUp"]) plane.angle -= 2;
+    if (keys["ArrowDown"]) plane.angle += 2;
+
+    plane.angle = Math.max(-25, Math.min(25, plane.angle));
+
+    // Physics
+    plane.speedY += gravity - (plane.angle * lift * 0.01);
+    plane.y += plane.speedY;
+    plane.x += plane.throttle * 8;
+
+    // Wrap horizontally
+    if (plane.x > canvas.width + 200) plane.x = -200;
+
+    // Landing detection
+    if (plane.y + 40 > runwayY) {
+        if (Math.abs(plane.speedY) < 2 && Math.abs(plane.angle) < 10) {
+            alert("BUTTER LANDING 🧈");
+        } else {
+            alert("HARD LANDING 💥");
+        }
+        document.location.reload();
+    }
+
+    draw();
+    requestAnimationFrame(update);
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw clouds
+    ctx.fillStyle = "white";
+    clouds.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.size * 0.4, 0, Math.PI * 2);
+        ctx.arc(c.x + c.size * 0.3, c.y + 20, c.size * 0.35, 0, Math.PI * 2);
+        ctx.arc(c.x - c.size * 0.3, c.y + 20, c.size * 0.35, 0, Math.PI * 2);
+        ctx.fill();
+
+        c.x -= 1;
+        if (c.x < -200) c.x = canvas.width + 200;
+    });
+
+    // Draw runway
+    ctx.fillStyle = "#444";
+    ctx.fillRect(0, runwayY, canvas.width, 200);
+
+    ctx.fillStyle = "white";
+    for (let i = 0; i < canvas.width; i += 200) {
+        ctx.fillRect(i, runwayY + 80, 100, 10);
+    }
+
+    // Draw plane
+    ctx.save();
+    ctx.translate(plane.x, plane.y);
+    ctx.rotate(plane.angle * Math.PI / 180);
+    ctx.drawImage(planeImg, -80, -40, 160, 80);
+    ctx.restore();
+}
+
+update();
+</script>
+
+</body>
+</html>
