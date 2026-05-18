@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catch the Kimbap! — GlazedKimpabAir Mini Game</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Montserrat, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        #game-area {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            border-top: 3px solid #003366;
+            border-bottom: 3px solid #003366;
+        }
+
+        #kimbap {
+            position: absolute;
+            width: 80px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        #score {
+            font-size: 24px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Catch the Kimbap!</h1>
+    <p>Click the kimbap before it escapes!</p>
+    <div id="score">Score: 0</div>
+
+    <div id="game-area">
+        <img id="kimbap" src="kimbap.png">
+    </div>
+
+    <script>
+        const kimbap = document.getElementById("kimbap");
+        const gameArea = document.getElementById("game-area");
+        const scoreDisplay = document.getElementById("score");
+
+        let score = 0;
+        let speed = 1000; // moves every 1 second
+
+        function moveKimbap() {
+            const maxX = gameArea.clientWidth - 80;
+            const maxY = gameArea.clientHeight - 80;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            kimbap.style.left = x + "px";
+            kimbap.style.top = y + "px";
+        }
+
+        kimbap.onclick = function () {
+            score++;
+            scoreDisplay.textContent = "Score: " + score;
+
+            speed = Math.max(300, speed - 50); // faster each click
+            moveKimbap();
+        };
+
+        setInterval(moveKimbap, speed);
+        moveKimbap();
+    </script>
+
+</body>
+</html>
