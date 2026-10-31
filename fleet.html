@@ -1,336 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GlazedKimpabAir Fleet</title>
-    <link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet - GlazedKimpabAir</title>
+<link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+<style>
+  :root {
+    --navy: #14294b;
+    --red: #c8102e;
+    --bg: #ffffff;
+    --panel: #eef1f5;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #cfd5de;
+  }
+  .dark {
+    --bg: #12151c;
+    --panel: #1b202b;
+    --text: #e4e7ed;
+    --muted: #98a1b2;
+    --line: #323a49;
+  }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-            animation: fadeIn 1.2s ease-in-out;
-        }
+  * { box-sizing: border-box; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
 
-        /* Navbar */
-        .navbar {
-            background-color: #003366;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            animation: dropDown 0.8s ease-out;
-        }
+  a { color: var(--navy); }
+  .dark a { color: #8fb4ee; }
 
-        @keyframes dropDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+  header { background: var(--navy); color: #fff; }
+  .bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar img { height: 42px; display: block; }
+  .bar a { color: #fff; text-decoration: none; font-size: 15px; }
+  .bar a:hover { text-decoration: underline; }
+  #darkToggle {
+    margin-left: auto;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #darkToggle:hover { background: rgba(255,255,255,.12); }
 
-        .navbar a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    color: var(--navy);
+  }
+  .dark h1 { color: #fff; }
+  .intro { color: var(--muted); max-width: 62ch; margin: 0 0 22px; }
 
-        /* Airline Logo */
-        .logo {
-            height: 45px;
-            vertical-align: middle;
-            margin-right: 25px;
-            transition: 0.3s ease;
-        }
+  .scroll { overflow-x: auto; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 760px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  th { background: var(--panel); font-size: 14px; }
+  td.maker { width: 110px; }
+  td.maker img {
+    display: block;
+    max-width: 90px;
+    max-height: 26px;
+    object-fit: contain;
+  }
+  .dark td.maker img { background: #fff; padding: 2px 4px; }
+  td.name a { font-weight: bold; }
+  td.name span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
 
-        .logo:hover {
-            filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
-            transform: scale(1.05);
-        }
+  footer {
+    margin-top: 50px;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer div { max-width: 1100px; margin: 0 auto; padding: 18px 20px; }
 
-        /* ⭐ Balanced Manufacturer Logos */
-        .brand-logo {
-            display: block;
-            margin: 0 auto 10px auto;
-            max-height: 45px; /* FIXED — ATR no longer huge */
-            width: auto;
-            object-fit: contain;
-            opacity: 0.9;
-            transition: 0.3s ease;
-        }
-
-        .brand-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 40px;
-            font-size: 40px;
-            font-weight: 700;
-            animation: slideUp 1s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Fleet Grid */
-        .fleet-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            width: 90%;
-            margin: auto;
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .plane-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 10px #ccc;
-            text-align: center;
-            transition: transform 0.15s ease-out, box-shadow 0.2s ease;
-            animation: popIn 0.6s ease-out;
-        }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.85); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .plane-card img:not(.brand-logo) {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .plane-card:hover img:not(.brand-logo) {
-            transform: scale(1.05);
-        }
-
-        .plane-extra {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 0.3s ease, max-height 0.3s ease;
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        .plane-card:hover {
-            box-shadow: 0 0 20px #bbb;
-            transform: scale(1.05);
-        }
-
-        .plane-card:hover .plane-extra {
-            opacity: 1;
-            max-height: 200px;
-        }
-
-        .plane-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 15px;
-        }
-
-        .plane-info {
-            font-size: 15px;
-            margin-top: 10px;
-            color: #333;
-        }
-    </style>
+  @media (max-width: 700px) {
+    .bar { flex-wrap: wrap; gap: 10px 16px; }
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html">
-            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" class="logo">
-        </a>
-        <a href="index.html">Home</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="#">About Us</a>
-    </div>
+<header>
+  <div class="bar">
+    <a href="index.html"><img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" alt="GlazedKimpabAir"></a>
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="about.html">About us</a>
+    <button id="darkToggle" type="button">Dark mode</button>
+  </div>
+</header>
 
-    <div class="header">Our Fleet</div>
+<main>
+  <h1>Our fleet</h1>
+  <p class="intro">Nine aircraft types, from a turboprop for island hops to the 747 we fly on heritage flights. Click an aircraft for details.</p>
 
-    <div class="fleet-container">
+  <div class="scroll">
+  <table>
+    <tr>
+      <th>Maker</th><th>Aircraft</th><th>Seats</th><th>Range</th><th>Type</th>
+    </tr>
 
-        <!-- A350-1000 -->
-        <a href="a350.html" class="card-link">
-            <div class="plane-card">
-                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
-                <div class="plane-title">Airbus A350‑1000</div>
-                <div class="plane-info">
-                    Flagship long‑haul<br>
-                    Seats: 350–410<br>
-                    Range: 16,100 km<br>
-                    Aircraft type: Wide-Body
+    <tr>
+      <td class="maker"><img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" alt="Airbus"></td>
+      <td class="name"><a href="a350.html">Airbus A350-1000</a>
+        <span>Flagship long-haul. Next-gen comfort and very quiet cabins.</span></td>
+      <td>350-410</td><td>16,100 km</td><td>Wide-body</td>
+    </tr>
 
-                </div>
-                <div class="plane-extra">
-                    Our premium long‑haul aircraft with next‑gen comfort and ultra‑quiet cabins.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" alt="Airbus"></td>
+      <td class="name"><a href="a330neo.html">Airbus A330-900neo</a>
+        <span>Fuel-efficient widebody for medium and long-haul routes.</span></td>
+      <td>260-300</td><td>13,300 km</td><td>Wide-body</td>
+    </tr>
 
-        <!-- A330-900neo -->
-        <a href="a330neo.html" class="card-link">
-            <div class="plane-card">
-                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
-                <div class="plane-title">Airbus A330‑900neo</div>
-                <div class="plane-info">
-                    Efficient long‑haul<br>
-                    Seats: 260–300<br>
-                    Range: 13,300 km<br>
-                    Aircraft type: Wide-Body
-                </div>
-                <div class="plane-extra">
-                    Fuel‑efficient widebody ideal for medium and long‑haul routes.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" alt="Airbus"></td>
+      <td class="name"><a href="a320neo.html">Airbus A320neo</a>
+        <span>Our workhorse for domestic, regional and short international flights.</span></td>
+      <td>150-180</td><td>6,300 km</td><td>Narrow-body</td>
+    </tr>
 
-        <!-- A320neo -->
-        <a href="a320neo.html" class="card-link">
-            <div class="plane-card">
-                <img src="Airbus-Logo-2017-scaled-removebg-preview (1).png" class="brand-logo">
-                <div class="plane-title">Airbus A320neo</div>
-                <div class="plane-info">
-                    Domestic & International<br>
-                    Seats: 150–180<br>
-                    Range: 6,300 km<br>
-                    Aircraft type: Narrow-Body
-                </div>
-                <div class="plane-extra">
-                    Our workhorse for regional and short international flights.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="Boeing-Logo-700x394.png" alt="Boeing"></td>
+      <td class="name"><a href="b737max8.html">Boeing 737 MAX 8</a>
+        <span>Modern narrowbody for medium-haul, with better fuel burn.</span></td>
+      <td>162-178</td><td>6,570 km</td><td>Narrow-body</td>
+    </tr>
 
-        <!-- Boeing 737 MAX 8 -->
-        <a href="b737max8.html" class="card-link">
-            <div class="plane-card">
-                <img src="Boeing-Logo-700x394.png" class="brand-logo">
-                <div class="plane-title">Boeing 737 MAX 8</div>
-                <div class="plane-info">
-                    Medium‑haul<br>
-                    Seats: 162–178<br>
-                    Range: 6,570 km<br>
-                    Aircraft type: Narrow-Body
-                </div>
-                <div class="plane-extra">
-                    Modern narrowbody with improved fuel burn and passenger comfort.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="Boeing-Logo-700x394.png" alt="Boeing"></td>
+      <td class="name"><a href="b747-200.html">Boeing 747-200 &ldquo;The Kimbap Queen&rdquo;</a>
+        <span>Our legacy jumbo, restored for special heritage flights.</span></td>
+      <td>366-452</td><td>12,700 km</td><td>Wide-body</td>
+    </tr>
 
-        <!-- Boeing 747‑200 -->
-        <a href="b747-200.html" class="card-link">
-            <div class="plane-card">
-                <img src="Boeing-Logo-700x394.png" class="brand-logo">
-                <div class="plane-title">Boeing 747‑200 “The Kimbap Queen”</div>
-                <div class="plane-info">
-                    Legacy jumbo jet<br>
-                    Seats: 366–452<br>
-                    Range: 12,700 km<br>
-                    Aircraft type: Wide-Body
-                </div>
-                <div class="plane-extra">
-                    Our iconic jumbo jet, restored for special heritage flights.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="Boeing-Logo-700x394.png" alt="Boeing"></td>
+      <td class="name"><a href="b767-300er.html">Boeing 767-300ER</a>
+        <span>Twin-aisle aircraft for mid-range international routes.</span></td>
+      <td>218-269</td><td>11,000 km</td><td>Wide-body</td>
+    </tr>
 
-        <!-- Boeing 767‑300ER -->
-        <a href="b767-300er.html" class="card-link">
-            <div class="plane-card">
-                <img src="Boeing-Logo-700x394.png" class="brand-logo">
-                <div class="plane-title">Boeing 767‑300ER</div>
-                <div class="plane-info">
-                    Mid‑haul international<br>
-                    Seats: 218–269<br>
-                    Range: 11,000 km<br>
-                    Aircraft type: Wide-Body
-                </div>
-                <div class="plane-extra">
-                    Reliable twin‑aisle aircraft perfect for mid‑range international routes.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="McDonnell-Douglas-Logo.png" alt="McDonnell Douglas"></td>
+      <td class="name"><a href="md11.html">McDonnell Douglas MD-11</a>
+        <span>Long-haul tri-jet, known for its range and unusual shape.</span></td>
+      <td>285-323</td><td>12,455 km</td><td>Wide-body tri-jet</td>
+    </tr>
 
-        <!-- McDonnell Douglas MD‑11 -->
-<a href="md11.html" class="card-link">
-    <div class="plane-card">
-        <img src="McDonnell-Douglas-Logo.png" class="brand-logo">
-        <div class="plane-title">McDonnell Douglas MD‑11</div>
-        <div class="plane-info">
-            Long‑haul tri‑jet<br>
-            Seats: 285–323<br>
-            Range: 12,455 km<br>
-            Aircraft type: Wide-Body Tri‑Jet
-        </div>
-        <div class="plane-extra">
-            A powerful and iconic tri‑jet known for its long range and unique design.
-        </div>
-    </div>
-</a>
+    <tr>
+      <td class="maker"><img src="Atr_new.png" alt="ATR"></td>
+      <td class="name"><a href="atr72600.html">ATR 72-600</a>
+        <span>Short-haul turboprop for short runways and island hops.</span></td>
+      <td>70</td><td>1,500 km</td><td>Turboprop</td>
+    </tr>
 
-        <!-- ATR 72‑600 -->
-        <a href="atr72600.html" class="card-link">
-            <div class="plane-card">
-                <img src="Atr_new.png" class="brand-logo">
-                <div class="plane-title">ATR 72‑600</div>
-                <div class="plane-info">
-                    Short‑haul turboprop<br>
-                    Seats: 70<br>
-                    Range: 1,500 km<br>
-                    Aircraft Type: Turboprop
-                </div>
-                <div class="plane-extra">
-                    Ideal for short‑runway airports and regional island hops.
-                </div>
-            </div>
-        </a>
+    <tr>
+      <td class="maker"><img src="logo_lockheed_martin_-1030x156.png" alt="Lockheed"></td>
+      <td class="name"><a href="l1011.html">Lockheed L-1011-1 TriStar</a>
+        <span>Wide-body tri-jet with a smooth ride and the S-duct middle engine.</span></td>
+      <td>250-330</td><td>6,100 km</td><td>Wide-body tri-jet</td>
+    </tr>
+  </table>
+  </div>
+</main>
 
-        <!-- Lockheed L‑1011‑1 TriStar -->
-<a href="l1011.html" class="card-link">
-    <div class="plane-card">
-        <img src="logo_lockheed_martin_-1030x156.png">
-        <div class="plane-title">Lockheed L‑1011‑1 TriStar</div>
-        <div class="plane-info">
-            Wide‑body tri‑jet<br>
-            Seats: 250–330<br>
-            Range: 6,100 km<br>
-            Aircraft type: Wide‑Body Tri‑Jet
-        </div>
-        <div class="plane-extra">
-            A legendary tri‑jet known for its smooth ride, advanced systems, and iconic S‑duct engine.
-        </div>
-    </div>
-</a>
+<footer>
+  <div>GlazedKimpabAir is a made-up airline for a hobby project. You can't actually book flights here.</div>
+</footer>
 
-    </div>
+<script>
+  var body = document.body;
+  var toggle = document.getElementById("darkToggle");
+  try {
+    if (localStorage.getItem("gka-dark") === "1") body.classList.add("dark");
+  } catch (e) {}
+  function label() {
+    toggle.textContent = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+  }
+  label();
+  toggle.onclick = function () {
+    body.classList.toggle("dark");
+    try { localStorage.setItem("gka-dark", body.classList.contains("dark") ? "1" : "0"); } catch (e) {}
+    label();
+  };
+</script>
 
 </body>
 </html>
