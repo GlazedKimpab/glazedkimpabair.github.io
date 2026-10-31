@@ -1,182 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Destinations — GlazedKimpabAir</title>
-    <link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destinations - GlazedKimpabAir</title>
+<link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+<style>
+  :root {
+    --navy: #14294b;
+    --red: #c8102e;
+    --bg: #ffffff;
+    --panel: #eef1f5;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #cfd5de;
+  }
+  .dark {
+    --bg: #12151c;
+    --panel: #1b202b;
+    --text: #e4e7ed;
+    --muted: #98a1b2;
+    --line: #323a49;
+  }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #f4f4f4;
-            animation: fadeIn 1s ease-in-out;
-        }
+  * { box-sizing: border-box; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
 
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 0.8s ease-out forwards;
-        }
+  a { color: var(--navy); }
+  .dark a { color: #8fb4ee; }
 
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+  header { background: var(--navy); color: #fff; }
+  .bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar img { height: 42px; display: block; }
+  .bar a { color: #fff; text-decoration: none; font-size: 15px; }
+  .bar a:hover { text-decoration: underline; }
+  #darkToggle {
+    margin-left: auto;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #darkToggle:hover { background: rgba(255,255,255,.12); }
 
-        /* Navbar */
-        .navbar {
-            background: #003366;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-        }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    color: var(--navy);
+  }
+  .dark h1 { color: #fff; }
+  .intro { color: var(--muted); max-width: 62ch; margin: 0 0 12px; }
 
-        .navbar a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+  .dest {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .dest img {
+    width: 260px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--panel);
+  }
+  .dest h2 {
+    font-size: 22px;
+    margin: 0 0 4px;
+    color: var(--navy);
+  }
+  .dark .dest h2 { color: #fff; }
+  .dest p { margin: 0 0 6px; max-width: 58ch; }
+  .dest .airport { color: var(--muted); font-size: 14px; }
 
-        .logo {
-            height: 45px;
-            margin-right: 25px;
-            vertical-align: middle;
-            transition: 0.3s ease;
-        }
+  footer {
+    margin-top: 50px;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer div { max-width: 1100px; margin: 0 auto; padding: 18px 20px; }
 
-        .logo:hover {
-            filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
-            transform: scale(1.05);
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 40px;
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        /* Destination Grid */
-        .dest-grid {
-            width: 90%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding-bottom: 50px;
-        }
-
-        .dest-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 0 12px #ccc;
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
-
-        .dest-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px #bbb;
-        }
-
-        .dest-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .dest-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .dest-info h3 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .dest-info p {
-            margin-top: 10px;
-            font-size: 15px;
-            color: #555;
-        }
-    </style>
+  @media (max-width: 700px) {
+    .bar { flex-wrap: wrap; gap: 10px 16px; }
+    .dest { flex-direction: column; gap: 12px; }
+    .dest img { width: 100%; height: 190px; }
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html">
-            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" class="logo">
-        </a>
-        <a href="index.html">Home</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="about.html">About Us</a>
+<header>
+  <div class="bar">
+    <a href="index.html"><img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" alt="GlazedKimpabAir"></a>
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="about.html">About us</a>
+    <button id="darkToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>Destinations</h1>
+  <p class="intro">Everything flies through Seoul. Here is where we go from there.</p>
+
+  <div class="dest">
+    <img src="maxresdefault.jpg" alt="Seoul airport">
+    <div>
+      <h2>Seoul</h2>
+      <p>Our home hub, and where every route starts.</p>
+      <p class="airport">Gimpo and Incheon International Airport</p>
     </div>
+  </div>
 
-    <div class="header fade-up">Our Destinations</div>
-
-    <div class="dest-grid fade-up">
-
-        <!-- Example Destination Cards -->
-        <div class="dest-card">
-            <img src="maxresdefault.jpg">
-            <div class="dest-info">
-                <h3>Seoul</h3>
-                <p>Our home hub — the heart of GlazedKimpabAir.</p>
-                <p>Gimpo & Incheon International Airport</p>
-            </div>
-        </div>
-
-        <div class="dest-card">
-            <img src="copenhagen-kastrup-airport-overview_PlanespottersNet_1379630_d3664f2c02_o.jpg">
-            <div class="dest-info">
-                <h3>Copenhagen</h3>
-                <p>Flagship A350‑1000 route — premium long‑haul service.</p>
-                <p>Copenhagen Kastrup International Airport</p>
-            </div>
-        </div>
-
-        <div class="dest-card">
-            <img src="tokyo-haneda-airport-overview_PlanespottersNet_1545771_8acaeff652_o.jpg">
-            <div class="dest-info">
-                <h3>Tokyo</h3>
-                <p>Fast, efficient service on the A320neo and 737 MAX.</p>
-                <p>Tokyo Haneda International Airport<p>
-            </div>
-        </div>
-
-        <div class="dest-card">
-            <img src="Navigating-Changi-Airports-climate-resilience-journey-h.png">
-            <div class="dest-info">
-                <h3>Singapore</h3>
-                <p>Mid‑haul 767‑300ER route — business and leisure hub.</p>
-                <p>Singapore Changi International Airport<p>
-            </div>
-        </div>
-
-        <div class="dest-card">
-            <img src="jeju-international-airport-overview_PlanespottersNet_1315541_e079202aec_o.jpg">
-            <div class="dest-info">
-                <h3>Jeju</h3>
-                <p>ATR 72‑600 island hops — fast, scenic, iconic.</p>
-                <p>Jeju International Airport<p>
-            </div>
-        </div>
-
+  <div class="dest">
+    <img src="copenhagen-kastrup-airport-overview_PlanespottersNet_1379630_d3664f2c02_o.jpg" alt="Copenhagen Kastrup Airport">
+    <div>
+      <h2>Copenhagen</h2>
+      <p>Our flagship A350-1000 route, with premium long-haul service.</p>
+      <p class="airport">Copenhagen Kastrup International Airport</p>
     </div>
+  </div>
+
+  <div class="dest">
+    <img src="tokyo-haneda-airport-overview_PlanespottersNet_1545771_8acaeff652_o.jpg" alt="Tokyo Haneda Airport">
+    <div>
+      <h2>Tokyo</h2>
+      <p>Short, frequent flights on the A320neo and 737 MAX.</p>
+      <p class="airport">Tokyo Haneda International Airport</p>
+    </div>
+  </div>
+
+  <div class="dest">
+    <img src="Navigating-Changi-Airports-climate-resilience-journey-h.png" alt="Singapore Changi Airport">
+    <div>
+      <h2>Singapore</h2>
+      <p>Mid-haul 767-300ER route for business and leisure travel.</p>
+      <p class="airport">Singapore Changi International Airport</p>
+    </div>
+  </div>
+
+  <div class="dest">
+    <img src="jeju-international-airport-overview_PlanespottersNet_1315541_e079202aec_o.jpg" alt="Jeju International Airport">
+    <div>
+      <h2>Jeju</h2>
+      <p>Island hops on the ATR 72-600.</p>
+      <p class="airport">Jeju International Airport</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div>GlazedKimpabAir is a made-up airline for a hobby project. You can't actually book flights here.</div>
+</footer>
+
+<script>
+  var body = document.body;
+  var toggle = document.getElementById("darkToggle");
+  try {
+    if (localStorage.getItem("gka-dark") === "1") body.classList.add("dark");
+  } catch (e) {}
+  function label() {
+    toggle.textContent = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+  }
+  label();
+  toggle.onclick = function () {
+    body.classList.toggle("dark");
+    try { localStorage.setItem("gka-dark", body.classList.contains("dark") ? "1" : "0"); } catch (e) {}
+    label();
+  };
+</script>
 
 </body>
 </html>
