@@ -1,197 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GlazedKimpabAir — Official Airline Website</title>
-    <link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlazedKimpabAir</title>
+<link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+<style>
+  :root {
+    --navy: #14294b;
+    --red: #c8102e;
+    --bg: #ffffff;
+    --panel: #eef1f5;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #cfd5de;
+  }
+  .dark {
+    --bg: #12151c;
+    --panel: #1b202b;
+    --text: #e4e7ed;
+    --muted: #98a1b2;
+    --line: #323a49;
+  }
 
-    <style>
-        /* Fade-in animation */
-        body {
-            animation: fadeIn 1.2s ease-in-out;
-            margin: 0;
-            font-family: Montserrat, sans-serif;
-            background-color: #f4f4f4;
-            transition: background 0.3s, color 0.3s;
-        }
+  * { box-sizing: border-box; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
 
-        /* Navbar */
-        .navbar {
-            background-color: #003366;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 9999;
-        }
+  a { color: var(--navy); }
+  .dark a { color: #8fb4ee; }
 
-        .navbar a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+  /* header */
+  header {
+    background: var(--navy);
+    color: #fff;
+  }
+  .bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar img { height: 42px; display: block; }
+  .bar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .bar a:hover { text-decoration: underline; }
+  #darkToggle {
+    margin-left: auto;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #darkToggle:hover { background: rgba(255,255,255,.12); }
 
-        /* Dark Mode Button */
-        #darkToggle {
-            margin-left: auto;
-            padding: 8px 14px;
-            background: #0055aa;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+  /* hero */
+  .hero {
+    position: relative;
+    height: 480px;
+    background: #222;
+    overflow: hidden;
+  }
+  .hero video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero h1 {
+    position: absolute;
+    left: max(20px, calc(50% - 530px));
+    top: 40px;
+    margin: 0;
+    color: #fff;
+    font-size: 40px;
+    line-height: 1.15;
+    max-width: 14em;
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
+  }
 
-        #darkToggle:hover {
-            background: #0077dd;
-        }
+  /* booking box */
+  .search {
+    position: relative;
+    max-width: 1100px;
+    margin: -70px auto 0;
+    padding: 0 20px;
+  }
+  .search form {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--red);
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+  }
+  .search label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .search input {
+    font: inherit;
+    padding: 7px 8px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--text);
+    width: 170px;
+  }
+  .search button {
+    font: inherit;
+    font-weight: bold;
+    background: var(--red);
+    color: #fff;
+    border: 0;
+    padding: 9px 18px;
+    cursor: pointer;
+  }
+  .search button:hover { background: #a50d25; }
+  #msg { margin: 8px 0 0; font-size: 14px; color: var(--muted); min-height: 1.4em; }
 
-        /* Logo styling */
-        .logo {
-            height: 45px;
-            vertical-align: middle;
-            margin-right: 25px;
-            transition: 0.3s ease;
-        }
+  /* content */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+  }
+  main h2 {
+    font-size: 22px;
+    margin: 34px 0 10px;
+    color: var(--navy);
+  }
+  .dark main h2 { color: #fff; }
+  main p { max-width: 62ch; margin: 0 0 12px; }
 
-        .logo:hover {
-            filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.8));
-            transform: scale(1.05);
-        }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 640px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  th { background: var(--panel); }
 
-        /* VIDEO HERO SECTION */
-        .video-container {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
 
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
+  footer {
+    margin-top: 50px;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer div {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 20px;
+  }
 
-        /* Dark overlay */
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.35);
-            z-index: 1;
-        }
-
-        .overlay-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 2;
-            text-shadow: 0 0 20px rgba(0,0,0,0.7);
-        }
-
-        .overlay-text h1 {
-            font-size: 60px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .overlay-text p {
-            font-size: 22px;
-            font-weight: 500;
-        }
-
-        /* Section below video */
-        .section {
-            padding: 40px;
-            text-align: center;
-        }
-
-        /* 🌙 DARK MODE THEME */
-        .dark-mode {
-            background-color: #0d1117;
-            color: #e6e6e6;
-        }
-
-        .dark-mode .navbar {
-            background-color: #111827;
-        }
-
-        .dark-mode .section h2,
-        .dark-mode .section p {
-            color: #e6e6e6;
-        }
-
-        .dark-mode .overlay-text {
-            text-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
-        }
-    </style>
+  @media (max-width: 700px) {
+    .hero { height: 380px; }
+    .hero h1 { font-size: 30px; }
+    .two { grid-template-columns: 1fr; }
+    .search input { width: 100%; }
+    .search form > div { flex: 1 1 100%; }
+    .bar { flex-wrap: wrap; gap: 10px 16px; }
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html">
-            <img src="GlazedKimpabAir-removebg-preview-removebg-preview.png"
-                 class="logo"
-                 alt="GlazedKimpabAir Logo">
-        </a>
-        <a href="index.html">Home</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="about.html">About Us</a>
+<header>
+  <div class="bar">
+    <a href="index.html"><img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" alt="GlazedKimpabAir"></a>
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="about.html">About us</a>
+    <button id="darkToggle" type="button">Dark mode</button>
+  </div>
+</header>
 
-        <!-- Dark Mode Button -->
-        <button id="darkToggle">Dark Mode</button>
-    </div>
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="gka747200_a17kitwK.mp4" type="video/mp4">
+  </video>
+  <h1>Seoul to the world, with a proper meal on board.</h1>
+</div>
 
-    <!-- VIDEO HERO -->
-    <div class="video-container">
-        <video autoplay muted loop playsinline>
-            <source src="gka747200_a17kitwK.mp4" type="video/mp4">
-        </video>
+<div class="search">
+  <form id="searchForm">
+    <div><label for="from">From</label><input id="from" value="Seoul (ICN)"></div>
+    <div><label for="to">To</label><input id="to" placeholder="City or airport"></div>
+    <div><label for="date">Depart</label><input id="date" type="date"></div>
+    <button type="submit">Search flights</button>
+  </form>
+  <p id="msg"></p>
+</div>
 
-        <div class="video-overlay"></div>
+<main>
+  <div class="two">
+    <section>
+      <h2>About the airline</h2>
+      <p>GlazedKimpabAir is a fictional Korean carrier flying out of Seoul Incheon. We fly a small fleet, keep the cabin simple, and serve kimbap on every long-haul flight.</p>
+      <p>Read more on the <a href="about.html">about page</a> or see the <a href="fleet.html">aircraft we fly</a>.</p>
+    </section>
 
-        <div class="overlay-text">
-            <h1>Fly the Future</h1>
-            <p>Welcome to GlazedKimpabAir</p>
-            <p>Experience comfort, innovation, and Korean hospitality in the skies.</p>
-        </div>
-    </div>
+    <section>
+      <h2>Popular routes</h2>
+      <table>
+        <tr><th>Route</th><th>Flight time</th></tr>
+        <tr><td>Seoul – Tokyo</td><td>2 h 15 min</td></tr>
+        <tr><td>Seoul – Singapore</td><td>6 h 30 min</td></tr>
+        <tr><td>Seoul – Los Angeles</td><td>11 h 20 min</td></tr>
+      </table>
+      <p style="margin-top:10px"><a href="destinations.html">All destinations</a></p>
+    </section>
+  </div>
+</main>
 
-    <div class="section">
-        <h2>Welcome to GlazedKimpabAir</h2>
-        <p>Experience comfort, innovation, and Korean hospitality in the skies.</p>
-    </div>
+<footer>
+  <div>GlazedKimpabAir is a made-up airline for a hobby project. You can't actually book flights here.</div>
+</footer>
 
-    <!-- 🌙 DARK MODE SCRIPT -->
-    <script>
-        document.getElementById("darkToggle").onclick = function () {
-            document.body.classList.toggle("dark-mode");
-        };
-    </script>
+<script>
+  var body = document.body;
+  var toggle = document.getElementById("darkToggle");
+
+  try {
+    if (localStorage.getItem("gka-dark") === "1") body.classList.add("dark");
+  } catch (e) {}
+
+  function label() {
+    toggle.textContent = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+  }
+  label();
+
+  toggle.onclick = function () {
+    body.classList.toggle("dark");
+    try { localStorage.setItem("gka-dark", body.classList.contains("dark") ? "1" : "0"); } catch (e) {}
+    label();
+  };
+
+  document.getElementById("searchForm").onsubmit = function (e) {
+    e.preventDefault();
+    document.getElementById("msg").textContent =
+      "Booking isn't open yet. This airline is fictional.";
+  };
+</script>
 
 </body>
 </html>
