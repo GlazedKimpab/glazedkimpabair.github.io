@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About us - GlazedKimpabAir</title>
+<link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+<style>
+  :root {
+    --navy: #14294b;
+    --red: #c8102e;
+    --bg: #ffffff;
+    --panel: #eef1f5;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #cfd5de;
+  }
+  .dark {
+    --bg: #12151c;
+    --panel: #1b202b;
+    --text: #e4e7ed;
+    --muted: #98a1b2;
+    --line: #323a49;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  a { color: var(--navy); }
+  .dark a { color: #8fb4ee; }
+
+  header { background: var(--navy); color: #fff; }
+  .bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar img { height: 42px; display: block; }
+  .bar a { color: #fff; text-decoration: none; font-size: 15px; }
+  .bar a:hover { text-decoration: underline; }
+  #darkToggle {
+    margin-left: auto;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #darkToggle:hover { background: rgba(255,255,255,.12); }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  article { flex: 1; min-width: 0; max-width: 68ch; }
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    color: var(--navy);
+  }
+  h2 {
+    font-size: 22px;
+    margin: 32px 0 8px;
+    color: var(--navy);
+  }
+  h3 {
+    font-size: 17px;
+    margin: 20px 0 6px;
+  }
+  .dark h1, .dark h2 { color: #fff; }
+  article p { margin: 0 0 12px; }
+  .main-article { color: var(--muted); font-size: 14px; font-style: italic; margin-bottom: 8px; }
+  ol { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 4px; }
+
+  aside {
+    width: 280px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--red);
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  aside h2 { font-size: 16px; margin: 0 0 8px; }
+  aside table { border-collapse: collapse; width: 100%; }
+  aside td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  aside td:first-child { width: 90px; color: var(--muted); }
+  aside tr:last-child td { border-bottom: 0; }
+
+  footer {
+    margin-top: 50px;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer div { max-width: 1100px; margin: 0 auto; padding: 18px 20px; }
+
+  @media (max-width: 800px) {
+    .bar { flex-wrap: wrap; gap: 10px 16px; }
+    main { flex-direction: column-reverse; gap: 20px; }
+    aside { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html"><img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" alt="GlazedKimpabAir"></a>
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="about.html">About us</a>
+    <button id="darkToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main>
+<article>
+  <h1>About us</h1>
+
+  <h2>Starting out</h2>
+  <p>The company spent two years developing its brand, fleet, strategy and operational network before starting operations in 2026. At launch, the airline introduced a fleet of the <a href="https://geofs.fandom.com/wiki/Airbus_A320-200">Airbus A320-200</a>, <a href="https://geofs.fandom.com/wiki/Airbus_A330-900neo">A330-900neo</a> and <a href="https://geofs.fandom.com/wiki/Airbus_A320neo">A320neo</a>, focusing on medium- and long-haul routes. Although a relatively new carrier, GlazedKimpabAir had built a well-organised, operational fleet by June 2026.</p>
+
+  <h2>Maintaining the fleet</h2>
+  <h3>Modern vs. nostalgic and aged aircraft</h3>
+  <p class="main-article">Main article: &ldquo;Operation: Restoration&rdquo;</p>
+  <p>The airline operates efficient, modern aircraft. However, GlazedKimpabAir's <a href="https://geofs.fandom.com/wiki/User:Gojiboy143">CEO</a> said in an interview that he wanted to make room for older aircraft such as the <a href="https://geofs.fandom.com/wiki/Airbus_A300-600">Airbus A300-600</a>, <a href="https://geofs.fandom.com/wiki/Airbus_A340-500">A340-500</a> and <a href="https://geofs.fandom.com/wiki/Airbus_A340-600_(SAMU12pp)">-600</a>, <a href="https://geofs.fandom.com/wiki/Airbus_A380-800">A380-800</a>, <a href="https://geofs.fandom.com/wiki/Boeing_747-100_SCA">Boeing 747-200</a>, <a href="https://geofs.fandom.com/wiki/Boeing_767-300ER">Boeing 767-300ER</a> and the <a href="https://geofs.fandom.com/wiki/McDonnell_Douglas_MD-11">McDonnell Douglas MD-11</a>. They would all be bought or restored, then go through serious maintenance and testing to make sure they are fully operational again. This plan was called &ldquo;Operation: Restoration&rdquo;.</p>
+
+  <h2>Joining and founding GlobalWorld Alliance</h2>
+  <p class="main-article">Main article: <a href="https://geofs.fandom.com/wiki/GlobalWorld_Alliance">GlobalWorld Alliance</a></p>
+  <p>On May 5, 2026, the airline teamed up with Lerak's Airways to form a new alliance called <a href="https://geofs.fandom.com/wiki/GlobalWorld_Alliance">GeoWorld Alliance</a>. It was later renamed GlobalWorld Alliance. Within two months, the alliance had more than five airlines in the group.</p>
+
+  <h2>Potential competitors</h2>
+  <p>GlazedKimpabAir is expanding quickly, and a few airlines could compete with it:</p>
+  <ol>
+    <li><a href="https://geofs.fandom.com/wiki/Korean_Air">Korean Air</a>: South Korea's flag carrier, now even stronger after acquiring Asiana Airlines.</li>
+    <li><a href="https://geofs.fandom.com/wiki/Aeguk_Air">Aeguk Air</a>: another strong South Korean airline with a big network.</li>
+    <li>Jeju Air: the biggest low-cost carrier in South Korea.</li>
+    <li>Scandinavian Airlines: also Danish, so it could compete for that reason.</li>
+  </ol>
+
+  <h2>Fleet acquisition from Asiana Airlines</h2>
+  <p class="main-article">Main post: <a href="https://geofs.fandom.com/f/p/4400000000000117466">Asiana Airlines agreement</a></p>
+  <p>In June 2026, GlazedKimpabAir took an interest in the aircraft of <a href="https://geofs.fandom.com/wiki/Asiana_Airlines">Asiana Airlines</a>, whose future was due to be decided at the end of the year because of its merger with <a href="https://geofs.fandom.com/wiki/Korean_Air">Korean Air</a>. On August 1, 2026, GlazedKimpabAir decided to take over most of Asiana's fleet.</p>
+  <p>The deal covered 69 of the 74 aircraft in Asiana's entire fleet. Most of them were used, with an average age of 10.9 years. Many of the aircraft GlazedKimpabAir took were already on order in its own fleet plans. It also took over 27 pending orders that Asiana could not receive in time, and moved them to 15 more <a href="https://geofs.fandom.com/wiki/Airbus_A350-900">Airbus A350-900</a> orders and 12 more <a href="https://geofs.fandom.com/wiki/Airbus_A321neo">Airbus A321neo</a> orders.</p>
+  <p>The A321neo and A350-900 were already on order, but the airline also took all 8 operating <a href="https://geofs.fandom.com/wiki/Boeing_777-200ER">Boeing 777-200ER</a> from Asiana, which had never been part of its fleet plans. Superjumbos like the Airbus A380-800 were also acquired, bringing the airline's planned total to 15 A380s. Most aircraft are expected to be delivered between late 2026 and 2028, though the A380 may be on hold.</p>
+  <p>On August 1, 2026, Hanjin Group and GlazedKimpab Group agreed to transfer a large number of Asiana aircraft, including pending deliveries that were never delivered in time. The whole deal was worth 25.8 billion won (18,116,760 USD).</p>
+</article>
+
+<aside>
+  <h2>Key dates</h2>
+  <table>
+    <tr><td>2026</td><td>Operations begin</td></tr>
+    <tr><td>May 5, 2026</td><td>GeoWorld Alliance formed with Lerak's Airways</td></tr>
+    <tr><td>June 2026</td><td>Fleet up and running; interest in Asiana's aircraft</td></tr>
+    <tr><td>Aug 1, 2026</td><td>Asiana fleet deal agreed</td></tr>
+    <tr><td>Late 2026-2028</td><td>Most deliveries expected</td></tr>
+  </table>
+</aside>
+</main>
+
+<footer>
+  <div>GlazedKimpabAir is a made-up airline for a hobby project. You can't actually book flights here.</div>
+</footer>
+
+<script>
+  var body = document.body;
+  var toggle = document.getElementById("darkToggle");
+  try {
+    if (localStorage.getItem("gka-dark") === "1") body.classList.add("dark");
+  } catch (e) {}
+  function label() {
+    toggle.textContent = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+  }
+  label();
+  toggle.onclick = function () {
+    body.classList.toggle("dark");
+    try { localStorage.setItem("gka-dark", body.classList.contains("dark") ? "1" : "0"); } catch (e) {}
+    label();
+  };
+</script>
+
+</body>
+</html>
