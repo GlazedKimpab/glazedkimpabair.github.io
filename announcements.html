@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Announcements - GlazedKimpabAir</title>
+<link rel="icon" type="image/png" href="Screenshot_2026-04-15_212708-removebg-preview.png">
+<style>
+  :root {
+    --navy: #14294b;
+    --red: #c8102e;
+    --bg: #ffffff;
+    --panel: #eef1f5;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #cfd5de;
+  }
+  .dark {
+    --bg: #12151c;
+    --panel: #1b202b;
+    --text: #e4e7ed;
+    --muted: #98a1b2;
+    --line: #323a49;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  a { color: var(--navy); }
+  .dark a { color: #8fb4ee; }
+
+  header { background: var(--navy); color: #fff; }
+  .bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar img { height: 42px; display: block; }
+  .bar a { color: #fff; text-decoration: none; font-size: 15px; }
+  .bar a:hover { text-decoration: underline; }
+  #darkToggle {
+    margin-left: auto;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #darkToggle:hover { background: rgba(255,255,255,.12); }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 10px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  article { flex: 1; min-width: 0; max-width: 68ch; }
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    color: var(--navy);
+  }
+  h2 {
+    font-size: 22px;
+    margin: 32px 0 8px;
+    color: var(--navy);
+  }
+  h3 {
+    font-size: 17px;
+    margin: 20px 0 6px;
+  }
+  .dark h1, .dark h2 { color: #fff; }
+  article p { margin: 0 0 12px; }
+  .main-article { color: var(--muted); font-size: 14px; font-style: italic; margin-bottom: 8px; }
+  ol { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 4px; }
+
+  aside {
+    width: 280px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--red);
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  aside h2 { font-size: 16px; margin: 0 0 8px; }
+  aside table { border-collapse: collapse; width: 100%; }
+  aside td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  aside td:first-child { width: 90px; color: var(--muted); }
+  aside tr:last-child td { border-bottom: 0; }
+
+  footer {
+    margin-top: 50px;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer div { max-width: 1100px; margin: 0 auto; padding: 18px 20px; }
+
+  @media (max-width: 800px) {
+    .bar { flex-wrap: wrap; gap: 10px 16px; }
+    main { flex-direction: column-reverse; gap: 20px; }
+    aside { width: 100%; }
+  }
+
+  .news { list-style: none; padding: 0; margin: 0; max-width: 760px; }
+  .news li {
+    display: flex;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .news .date { width: 110px; flex-shrink: 0; color: var(--muted); font-size: 14px; padding-top: 2px; }
+  .news h2 { font-size: 18px; margin: 0 0 4px; }
+  .news p { margin: 0 0 8px; }
+  .news p:last-child { margin-bottom: 0; }
+  main { display: block; }
+  .intro { color: var(--muted); margin: 0 0 18px; }
+  @media (max-width: 700px) { .news li { flex-direction: column; gap: 4px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html"><img src="GlazedKimpabAir-removebg-preview-removebg-preview.png" alt="GlazedKimpabAir"></a>
+    <a href="index.html">Home</a>
+    <a href="fleet.html">Fleet</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="about.html">About us</a>
+    <button id="darkToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>Announcements</h1>
+  <p class="intro">News from GlazedKimpabAir, newest first.</p>
+
+  <ul class="news">
+    <li>
+      <span class="date">Aug 1, 2026</span>
+      <div>
+        <h2>Asiana fleet agreement signed</h2>
+        <p>Hanjin Group and GlazedKimpab Group agreed to transfer 69 of Asiana's 74 aircraft to GlazedKimpabAir, including pending deliveries. The deal is worth 25.8 billion won (18,116,760 USD).</p>
+        <p>We also took over 27 pending orders, now 15 more A350-900 and 12 more A321neo. Most deliveries are expected between late 2026 and 2028. <a href="about.html">Read the full story</a>.</p>
+      </div>
+    </li>
+    <li>
+      <span class="date">June 2026</span>
+      <div>
+        <h2>Fleet up and running</h2>
+        <p>Our first A320-200, A330-900neo and A320neo aircraft are flying medium- and long-haul routes.</p>
+      </div>
+    </li>
+    <li>
+      <span class="date">May 5, 2026</span>
+      <div>
+        <h2>GeoWorld Alliance founded</h2>
+        <p>We teamed up with Lerak's Airways to start the alliance, later renamed GlobalWorld Alliance. It had more than five airlines within two months.</p>
+      </div>
+    </li>
+    <li>
+      <span class="date">2026</span>
+      <div>
+        <h2>Operation: Restoration</h2>
+        <p>Our CEO announced plans to bring back older aircraft such as the A300-600, A340, A380, 747-200, 767-300ER and MD-11, with serious maintenance and testing before they fly again.</p>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <div>GlazedKimpabAir is a made-up airline for a hobby project. You can't actually book flights here.</div>
+</footer>
+
+<script>
+  var body = document.body;
+  var toggle = document.getElementById("darkToggle");
+  try {
+    if (localStorage.getItem("gka-dark") === "1") body.classList.add("dark");
+  } catch (e) {}
+  function label() {
+    toggle.textContent = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+  }
+  label();
+  toggle.onclick = function () {
+    body.classList.toggle("dark");
+    try { localStorage.setItem("gka-dark", body.classList.contains("dark") ? "1" : "0"); } catch (e) {}
+    label();
+  };
+</script>
+
+</body>
+</html>
