@@ -184,6 +184,16 @@
     padding: 18px 20px;
   }
 
+  .news { list-style: none; padding: 0; margin: 0; max-width: 760px; }
+  .news li {
+    display: flex;
+    gap: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .news .date { width: 110px; flex-shrink: 0; color: var(--muted); font-size: 14px; padding-top: 1px; }
+  .news strong { display: block; }
+
   @media (max-width: 700px) {
     .hero { height: 380px; }
     .hero h1 { font-size: 30px; }
@@ -202,6 +212,7 @@
     <a href="index.html">Home</a>
     <a href="fleet.html">Fleet</a>
     <a href="destinations.html">Destinations</a>
+    <a href="announcements.html">Announcements</a>
     <a href="about.html">About us</a>
     <button id="darkToggle" type="button">Dark mode</button>
   </div>
@@ -244,6 +255,25 @@
       <p style="margin-top:10px"><a href="destinations.html">All destinations</a></p>
     </section>
   </div>
+  <h2 id="announcements">Announcements</h2>
+  <ul class="news">
+    <li>
+      <span class="date">Aug 1, 2026</span>
+      <div><strong>Asiana fleet agreement signed</strong>
+        We are taking over 69 of Asiana's 74 aircraft, plus pending A350-900 and A321neo orders. <a href="about.html">Read the full story</a>.</div>
+    </li>
+    <li>
+      <span class="date">June 2026</span>
+      <div><strong>Fleet up and running</strong>
+        Our first A320-200, A330-900neo and A320neo aircraft are flying medium- and long-haul routes.</div>
+    </li>
+    <li>
+      <span class="date">May 5, 2026</span>
+      <div><strong>GeoWorld Alliance founded</strong>
+        We teamed up with Lerak's Airways to start the alliance, later renamed GlobalWorld Alliance.</div>
+    </li>
+  </ul>
+  <p style="margin-top:10px"><a href="announcements.html">All announcements</a></p>
 </main>
 
 <footer>
